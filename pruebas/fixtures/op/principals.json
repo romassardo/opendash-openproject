@@ -1,0 +1,223 @@
+{
+  "_type": "Collection",
+  "total": 8,
+  "count": 8,
+  "pageSize": 100,
+  "offset": 1,
+  "_embedded": {
+    "elements": [
+      {
+        "_type": "Group",
+        "id": 12,
+        "name": "Persona 1",
+        "organizationalUnit": false,
+        "_links": {
+          "self": {
+            "href": "/api/v3/groups/12",
+            "title": "Persona 1"
+          },
+          "memberships": {
+            "href": "/api/v3/memberships?filters=%5B%7B%22principal%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2212%22%5D%7D%7D%5D",
+            "title": "Afiliaciones"
+          },
+          "members": [
+            {
+              "href": "/api/v3/users/11",
+              "title": "Persona 2"
+            },
+            {
+              "href": "/api/v3/users/9",
+              "title": "Persona 3"
+            },
+            {
+              "href": "/api/v3/users/10",
+              "title": "Persona 4"
+            },
+            {
+              "href": "/api/v3/users/8",
+              "title": "Persona 5"
+            },
+            {
+              "href": "/api/v3/users/7",
+              "title": "Persona 6"
+            },
+            {
+              "href": "/api/v3/users/5",
+              "title": "Persona 7"
+            }
+          ]
+        }
+      },
+      {
+        "_type": "User",
+        "id": 11,
+        "name": "Persona 2",
+        "_links": {
+          "self": {
+            "href": "/api/v3/users/11",
+            "title": "Persona 2"
+          },
+          "memberships": {
+            "href": "/api/v3/memberships?filters=%5B%7B%22principal%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2211%22%5D%7D%7D%5D",
+            "title": "Afiliaciones"
+          },
+          "showUser": {
+            "href": "/users/11",
+            "type": "text/html"
+          }
+        }
+      },
+      {
+        "_type": "User",
+        "id": 10,
+        "name": "Persona 4",
+        "_links": {
+          "self": {
+            "href": "/api/v3/users/10",
+            "title": "Persona 4"
+          },
+          "memberships": {
+            "href": "/api/v3/memberships?filters=%5B%7B%22principal%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2210%22%5D%7D%7D%5D",
+            "title": "Afiliaciones"
+          },
+          "showUser": {
+            "href": "/users/10",
+            "type": "text/html"
+          }
+        }
+      },
+      {
+        "_type": "User",
+        "id": 9,
+        "name": "Persona 3",
+        "createdAt": "2026-08-27T20:18:23.618Z",
+        "updatedAt": "2026-10-05T20:06:16.472Z",
+        "login": "persona3",
+        "firstName": "Persona",
+        "lastName": "3",
+        "email": "persona3@ejemplo.test",
+        "status": "active",
+        "identityUrl": null,
+        "language": "es",
+        "_links": {
+          "self": {
+            "href": "/api/v3/users/9",
+            "title": "Persona 3"
+          },
+          "memberships": {
+            "href": "/api/v3/memberships?filters=%5B%7B%22principal%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%229%22%5D%7D%7D%5D",
+            "title": "Afiliaciones"
+          },
+          "showUser": {
+            "href": "/users/9",
+            "type": "text/html"
+          }
+        }
+      },
+      {
+        "_type": "User",
+        "id": 8,
+        "name": "Persona 5",
+        "_links": {
+          "self": {
+            "href": "/api/v3/users/8",
+            "title": "Persona 5"
+          },
+          "memberships": {
+            "href": "/api/v3/memberships?filters=%5B%7B%22principal%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%228%22%5D%7D%7D%5D",
+            "title": "Afiliaciones"
+          },
+          "showUser": {
+            "href": "/users/8",
+            "type": "text/html"
+          }
+        }
+      },
+      {
+        "_type": "User",
+        "id": 7,
+        "name": "Persona 6",
+        "_links": {
+          "self": {
+            "href": "/api/v3/users/7",
+            "title": "Persona 6"
+          },
+          "memberships": {
+            "href": "/api/v3/memberships?filters=%5B%7B%22principal%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%227%22%5D%7D%7D%5D",
+            "title": "Afiliaciones"
+          },
+          "showUser": {
+            "href": "/users/7",
+            "type": "text/html"
+          }
+        }
+      },
+      {
+        "_type": "Group",
+        "id": 6,
+        "name": "Persona 8",
+        "organizationalUnit": true,
+        "_links": {
+          "self": {
+            "href": "/api/v3/groups/6",
+            "title": "Persona 8"
+          },
+          "memberships": {
+            "href": "/api/v3/memberships?filters=%5B%7B%22principal%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%226%22%5D%7D%7D%5D",
+            "title": "Afiliaciones"
+          },
+          "members": [
+            {
+              "href": "/api/v3/users/8",
+              "title": "Persona 5"
+            },
+            {
+              "href": "/api/v3/users/9",
+              "title": "Persona 3"
+            },
+            {
+              "href": "/api/v3/users/10",
+              "title": "Persona 4"
+            },
+            {
+              "href": "/api/v3/users/11",
+              "title": "Persona 2"
+            }
+          ]
+        }
+      },
+      {
+        "_type": "User",
+        "id": 5,
+        "name": "Persona 7",
+        "_links": {
+          "self": {
+            "href": "/api/v3/users/5",
+            "title": "Persona 7"
+          },
+          "memberships": {
+            "href": "/api/v3/memberships?filters=%5B%7B%22principal%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%225%22%5D%7D%7D%5D",
+            "title": "Afiliaciones"
+          },
+          "showUser": {
+            "href": "/users/5",
+            "type": "text/html"
+          }
+        }
+      }
+    ]
+  },
+  "_links": {
+    "self": {
+      "href": "/api/v3/principals?filters=%5B%5D&offset=1&pageSize=100"
+    },
+    "jumpTo": {
+      "href": "/api/v3/principals?filters=%5B%5D&offset=%7Boffset%7D&pageSize=100",
+      "templated": true
+    },
+    "changeSize": {
+      "href": "/api/v3/principals?filters=%5B%5D&offset=1&pageSize=%7Bsize%7D",
+      "templated": true
+    }
+  }
+}

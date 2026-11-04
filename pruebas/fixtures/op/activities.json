@@ -1,0 +1,670 @@
+{
+  "_type": "Collection",
+  "total": 12,
+  "count": 12,
+  "_embedded": {
+    "elements": [
+      {
+        "_type": "Activity",
+        "id": 65,
+        "comment": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "details": [
+          {
+            "format": "custom",
+            "raw": "Cambio 65.1",
+            "html": "Cambio 65.1"
+          },
+          {
+            "format": "custom",
+            "raw": "Cambio 65.2",
+            "html": "Cambio 65.2"
+          },
+          {
+            "format": "custom",
+            "raw": "Cambio 65.3",
+            "html": "Cambio 65.3"
+          },
+          {
+            "format": "custom",
+            "raw": "Cambio 65.4",
+            "html": "Cambio 65.4"
+          },
+          {
+            "format": "custom",
+            "raw": "Estado establecido al New",
+            "html": "<strong>Estado</strong> establecido al <i>New</i>"
+          },
+          {
+            "format": "custom",
+            "raw": "Cambio 65.6",
+            "html": "Cambio 65.6"
+          },
+          {
+            "format": "custom",
+            "raw": "Prioridad establecido al Normal",
+            "html": "<strong>Prioridad</strong> establecido al <i>Normal</i>"
+          },
+          {
+            "format": "custom",
+            "raw": "Cambio 65.8",
+            "html": "Cambio 65.8"
+          },
+          {
+            "format": "custom",
+            "raw": "Cambio 65.9",
+            "html": "Cambio 65.9"
+          },
+          {
+            "format": "custom",
+            "raw": "Cambio 65.10",
+            "html": "Cambio 65.10"
+          },
+          {
+            "format": "custom",
+            "raw": "Cambio 65.11",
+            "html": "Cambio 65.11"
+          }
+        ],
+        "version": 1,
+        "internal": false,
+        "createdAt": "2026-08-31T14:37:09.257Z",
+        "updatedAt": "2026-08-31T14:37:09.257Z",
+        "_links": {
+          "attachments": {
+            "href": "/api/v3/activities/65/attachments"
+          },
+          "addAttachment": {
+            "href": "/api/v3/activities/65/attachments",
+            "method": "post"
+          },
+          "self": {
+            "href": "/api/v3/activities/65"
+          },
+          "workPackage": {
+            "href": "/api/v3/work_packages/41",
+            "title": "Tarea 1"
+          },
+          "user": {
+            "href": "/api/v3/users/9"
+          },
+          "update": {
+            "href": "/api/v3/activities/65",
+            "method": "patch"
+          },
+          "emojiReactions": {
+            "href": "/api/v3/activities/65/emoji_reactions"
+          }
+        }
+      },
+      {
+        "_type": "Activity",
+        "id": 66,
+        "comment": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "details": [
+          {
+            "format": "custom",
+            "raw": "Cambio 66.1",
+            "html": "Cambio 66.1"
+          },
+          {
+            "format": "custom",
+            "raw": "Estado se cambió de New a In progress",
+            "html": "<strong>Estado</strong> se cambió de <i>New</i> a <i>In progress</i>"
+          }
+        ],
+        "version": 2,
+        "internal": false,
+        "createdAt": "2026-08-31T14:44:02.627Z",
+        "updatedAt": "2026-08-31T14:44:02.627Z",
+        "_links": {
+          "attachments": {
+            "href": "/api/v3/activities/66/attachments"
+          },
+          "addAttachment": {
+            "href": "/api/v3/activities/66/attachments",
+            "method": "post"
+          },
+          "self": {
+            "href": "/api/v3/activities/66"
+          },
+          "workPackage": {
+            "href": "/api/v3/work_packages/41",
+            "title": "Tarea 1"
+          },
+          "user": {
+            "href": "/api/v3/users/9"
+          },
+          "update": {
+            "href": "/api/v3/activities/66",
+            "method": "patch"
+          },
+          "emojiReactions": {
+            "href": "/api/v3/activities/66/emoji_reactions"
+          }
+        }
+      },
+      {
+        "_type": "Activity",
+        "id": 72,
+        "comment": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "details": [
+          {
+            "format": "custom",
+            "raw": "Cambio 72.1",
+            "html": "Cambio 72.1"
+          },
+          {
+            "format": "custom",
+            "raw": "Cambio 72.2",
+            "html": "Cambio 72.2"
+          }
+        ],
+        "version": 3,
+        "internal": false,
+        "createdAt": "2026-09-01T11:41:35.278Z",
+        "updatedAt": "2026-09-01T11:41:35.278Z",
+        "_links": {
+          "attachments": {
+            "href": "/api/v3/activities/72/attachments"
+          },
+          "addAttachment": {
+            "href": "/api/v3/activities/72/attachments",
+            "method": "post"
+          },
+          "self": {
+            "href": "/api/v3/activities/72"
+          },
+          "workPackage": {
+            "href": "/api/v3/work_packages/41",
+            "title": "Tarea 1"
+          },
+          "user": {
+            "href": "/api/v3/users/8"
+          },
+          "update": {
+            "href": "/api/v3/activities/72",
+            "method": "patch"
+          },
+          "emojiReactions": {
+            "href": "/api/v3/activities/72/emoji_reactions"
+          }
+        }
+      },
+      {
+        "_type": "Activity",
+        "id": 110,
+        "comment": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "details": [
+          {
+            "format": "custom",
+            "raw": "Cambio 110.1",
+            "html": "Cambio 110.1"
+          },
+          {
+            "format": "custom",
+            "raw": "Cambio 110.2",
+            "html": "Cambio 110.2"
+          },
+          {
+            "format": "custom",
+            "raw": "Cambio 110.3",
+            "html": "Cambio 110.3"
+          },
+          {
+            "format": "custom",
+            "raw": "Cambio 110.4",
+            "html": "Cambio 110.4"
+          },
+          {
+            "format": "custom",
+            "raw": "Cambio 110.5",
+            "html": "Cambio 110.5"
+          }
+        ],
+        "version": 4,
+        "internal": false,
+        "createdAt": "2026-09-01T14:01:02.315Z",
+        "updatedAt": "2026-09-01T14:03:36.188Z",
+        "_links": {
+          "attachments": {
+            "href": "/api/v3/activities/110/attachments"
+          },
+          "addAttachment": {
+            "href": "/api/v3/activities/110/attachments",
+            "method": "post"
+          },
+          "self": {
+            "href": "/api/v3/activities/110"
+          },
+          "workPackage": {
+            "href": "/api/v3/work_packages/41",
+            "title": "Tarea 1"
+          },
+          "user": {
+            "href": "/api/v3/users/9"
+          },
+          "update": {
+            "href": "/api/v3/activities/110",
+            "method": "patch"
+          },
+          "emojiReactions": {
+            "href": "/api/v3/activities/110/emoji_reactions"
+          }
+        }
+      },
+      {
+        "_type": "Activity::Comment",
+        "id": 130,
+        "comment": {
+          "format": "markdown",
+          "raw": "Comentario 130",
+          "html": "<p>Comentario 130</p>"
+        },
+        "details": [
+          {
+            "format": "custom",
+            "raw": "Estado se cambió de In progress a On hold",
+            "html": "<strong>Estado</strong> se cambió de <i>In progress</i> a <i>On hold</i>"
+          }
+        ],
+        "version": 5,
+        "internal": false,
+        "createdAt": "2026-09-01T20:00:09.337Z",
+        "updatedAt": "2026-09-01T20:00:09.864Z",
+        "_links": {
+          "attachments": {
+            "href": "/api/v3/activities/130/attachments"
+          },
+          "addAttachment": {
+            "href": "/api/v3/activities/130/attachments",
+            "method": "post"
+          },
+          "self": {
+            "href": "/api/v3/activities/130"
+          },
+          "workPackage": {
+            "href": "/api/v3/work_packages/41",
+            "title": "Tarea 1"
+          },
+          "user": {
+            "href": "/api/v3/users/9"
+          },
+          "update": {
+            "href": "/api/v3/activities/130",
+            "method": "patch"
+          },
+          "emojiReactions": {
+            "href": "/api/v3/activities/130/emoji_reactions"
+          }
+        }
+      },
+      {
+        "_type": "Activity::Comment",
+        "id": 135,
+        "comment": {
+          "format": "markdown",
+          "raw": "Comentario 135",
+          "html": "<p>Comentario 135</p>"
+        },
+        "details": [
+          {
+            "format": "custom",
+            "raw": "Estado se cambió de On hold a In progress",
+            "html": "<strong>Estado</strong> se cambió de <i>On hold</i> a <i>In progress</i>"
+          }
+        ],
+        "version": 6,
+        "internal": false,
+        "createdAt": "2026-09-02T13:21:28.298Z",
+        "updatedAt": "2026-09-02T13:21:28.759Z",
+        "_links": {
+          "attachments": {
+            "href": "/api/v3/activities/135/attachments"
+          },
+          "addAttachment": {
+            "href": "/api/v3/activities/135/attachments",
+            "method": "post"
+          },
+          "self": {
+            "href": "/api/v3/activities/135"
+          },
+          "workPackage": {
+            "href": "/api/v3/work_packages/41",
+            "title": "Tarea 1"
+          },
+          "user": {
+            "href": "/api/v3/users/9"
+          },
+          "update": {
+            "href": "/api/v3/activities/135",
+            "method": "patch"
+          },
+          "emojiReactions": {
+            "href": "/api/v3/activities/135/emoji_reactions"
+          }
+        }
+      },
+      {
+        "_type": "Activity::Comment",
+        "id": 136,
+        "comment": {
+          "format": "markdown",
+          "raw": "Comentario 136",
+          "html": "<p>Comentario 136</p>"
+        },
+        "details": [
+          {
+            "format": "custom",
+            "raw": "Cambio 136.1",
+            "html": "Cambio 136.1"
+          },
+          {
+            "format": "custom",
+            "raw": "Cambio 136.2",
+            "html": "Cambio 136.2"
+          }
+        ],
+        "version": 7,
+        "internal": false,
+        "createdAt": "2026-09-02T13:25:20.095Z",
+        "updatedAt": "2026-09-02T13:26:23.148Z",
+        "_links": {
+          "attachments": {
+            "href": "/api/v3/activities/136/attachments"
+          },
+          "addAttachment": {
+            "href": "/api/v3/activities/136/attachments",
+            "method": "post"
+          },
+          "self": {
+            "href": "/api/v3/activities/136"
+          },
+          "workPackage": {
+            "href": "/api/v3/work_packages/41",
+            "title": "Tarea 1"
+          },
+          "user": {
+            "href": "/api/v3/users/9"
+          },
+          "update": {
+            "href": "/api/v3/activities/136",
+            "method": "patch"
+          },
+          "emojiReactions": {
+            "href": "/api/v3/activities/136/emoji_reactions"
+          }
+        }
+      },
+      {
+        "_type": "Activity",
+        "id": 137,
+        "comment": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "details": [
+          {
+            "format": "custom",
+            "raw": "Cambio 137.1",
+            "html": "Cambio 137.1"
+          }
+        ],
+        "version": 8,
+        "internal": false,
+        "createdAt": "2026-09-02T13:58:07.091Z",
+        "updatedAt": "2026-09-02T13:58:07.091Z",
+        "_links": {
+          "attachments": {
+            "href": "/api/v3/activities/137/attachments"
+          },
+          "addAttachment": {
+            "href": "/api/v3/activities/137/attachments",
+            "method": "post"
+          },
+          "self": {
+            "href": "/api/v3/activities/137"
+          },
+          "workPackage": {
+            "href": "/api/v3/work_packages/41",
+            "title": "Tarea 1"
+          },
+          "user": {
+            "href": "/api/v3/users/9"
+          },
+          "update": {
+            "href": "/api/v3/activities/137",
+            "method": "patch"
+          },
+          "emojiReactions": {
+            "href": "/api/v3/activities/137/emoji_reactions"
+          }
+        }
+      },
+      {
+        "_type": "Activity",
+        "id": 151,
+        "comment": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "details": [
+          {
+            "format": "custom",
+            "raw": "Cambio 151.1",
+            "html": "Cambio 151.1"
+          },
+          {
+            "format": "custom",
+            "raw": "Cambio 151.2",
+            "html": "Cambio 151.2"
+          }
+        ],
+        "version": 9,
+        "internal": false,
+        "createdAt": "2026-09-02T17:45:45.443Z",
+        "updatedAt": "2026-09-02T17:45:53.644Z",
+        "_links": {
+          "attachments": {
+            "href": "/api/v3/activities/151/attachments"
+          },
+          "addAttachment": {
+            "href": "/api/v3/activities/151/attachments",
+            "method": "post"
+          },
+          "self": {
+            "href": "/api/v3/activities/151"
+          },
+          "workPackage": {
+            "href": "/api/v3/work_packages/41",
+            "title": "Tarea 1"
+          },
+          "user": {
+            "href": "/api/v3/users/9"
+          },
+          "update": {
+            "href": "/api/v3/activities/151",
+            "method": "patch"
+          },
+          "emojiReactions": {
+            "href": "/api/v3/activities/151/emoji_reactions"
+          }
+        }
+      },
+      {
+        "_type": "Activity::Comment",
+        "id": 171,
+        "comment": {
+          "format": "markdown",
+          "raw": "Comentario 171",
+          "html": "<p>Comentario 171</p>"
+        },
+        "details": [
+          {
+            "format": "custom",
+            "raw": "Cambio 171.1",
+            "html": "Cambio 171.1"
+          },
+          {
+            "format": "custom",
+            "raw": "Cambio 171.2",
+            "html": "Cambio 171.2"
+          },
+          {
+            "format": "custom",
+            "raw": "Cambio 171.3",
+            "html": "Cambio 171.3"
+          }
+        ],
+        "version": 10,
+        "internal": false,
+        "createdAt": "2026-09-02T20:08:35.513Z",
+        "updatedAt": "2026-09-02T20:09:18.993Z",
+        "_links": {
+          "attachments": {
+            "href": "/api/v3/activities/171/attachments"
+          },
+          "addAttachment": {
+            "href": "/api/v3/activities/171/attachments",
+            "method": "post"
+          },
+          "self": {
+            "href": "/api/v3/activities/171"
+          },
+          "workPackage": {
+            "href": "/api/v3/work_packages/41",
+            "title": "Tarea 1"
+          },
+          "user": {
+            "href": "/api/v3/users/9"
+          },
+          "update": {
+            "href": "/api/v3/activities/171",
+            "method": "patch"
+          },
+          "emojiReactions": {
+            "href": "/api/v3/activities/171/emoji_reactions"
+          }
+        }
+      },
+      {
+        "_type": "Activity::Comment",
+        "id": 537,
+        "comment": {
+          "format": "markdown",
+          "raw": "Comentario 537",
+          "html": "<p>Comentario 537</p>"
+        },
+        "details": [
+          {
+            "format": "custom",
+            "raw": "Estado se cambió de In progress a Closed",
+            "html": "<strong>Estado</strong> se cambió de <i>In progress</i> a <i>Closed</i>"
+          },
+          {
+            "format": "custom",
+            "raw": "Cambio 537.2",
+            "html": "Cambio 537.2"
+          },
+          {
+            "format": "custom",
+            "raw": "Cambio 537.3",
+            "html": "Cambio 537.3"
+          }
+        ],
+        "version": 11,
+        "internal": false,
+        "createdAt": "2026-09-08T19:57:32.102Z",
+        "updatedAt": "2026-09-08T20:01:38.103Z",
+        "_links": {
+          "attachments": {
+            "href": "/api/v3/activities/537/attachments"
+          },
+          "addAttachment": {
+            "href": "/api/v3/activities/537/attachments",
+            "method": "post"
+          },
+          "self": {
+            "href": "/api/v3/activities/537"
+          },
+          "workPackage": {
+            "href": "/api/v3/work_packages/41",
+            "title": "Tarea 1"
+          },
+          "user": {
+            "href": "/api/v3/users/9"
+          },
+          "update": {
+            "href": "/api/v3/activities/537",
+            "method": "patch"
+          },
+          "emojiReactions": {
+            "href": "/api/v3/activities/537/emoji_reactions"
+          }
+        }
+      },
+      {
+        "_type": "Activity::Comment",
+        "id": 538,
+        "comment": {
+          "format": "markdown",
+          "raw": "Comentario 538",
+          "html": "<p>Comentario 538</p>"
+        },
+        "details": [],
+        "version": 12,
+        "internal": false,
+        "createdAt": "2026-09-08T20:01:43.666Z",
+        "updatedAt": "2026-09-08T20:01:43.666Z",
+        "_links": {
+          "attachments": {
+            "href": "/api/v3/activities/538/attachments"
+          },
+          "addAttachment": {
+            "href": "/api/v3/activities/538/attachments",
+            "method": "post"
+          },
+          "self": {
+            "href": "/api/v3/activities/538"
+          },
+          "workPackage": {
+            "href": "/api/v3/work_packages/41",
+            "title": "Tarea 1"
+          },
+          "user": {
+            "href": "/api/v3/users/9"
+          },
+          "update": {
+            "href": "/api/v3/activities/538",
+            "method": "patch"
+          },
+          "emojiReactions": {
+            "href": "/api/v3/activities/538/emoji_reactions"
+          }
+        }
+      }
+    ]
+  },
+  "_links": {
+    "self": {
+      "href": "/api/v3/work_packages/41/activities"
+    }
+  }
+}

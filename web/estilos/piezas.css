@@ -1,0 +1,430 @@
+/* Piezas de interfaz (web/ui). Medidas de la referencia a 1440 px; colores desde tokens.css. */
+
+svg.lucide {
+  stroke-width: 1.8;
+  flex: none;
+}
+
+/* Botón */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacio-2);
+  height: var(--alto-control);
+  padding: 0 18px;
+  border: 0;
+  border-radius: var(--radio-pildora);
+  font: inherit;
+  font-size: var(--tam-cuerpo);
+  font-weight: var(--peso-medio);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background var(--dur-cambio), color var(--dur-cambio), box-shadow var(--dur-cambio), filter var(--dur-cambio);
+}
+
+.boton svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2.1;
+}
+
+.boton__icono {
+  display: inline-flex;
+}
+
+.boton--primario {
+  color: #fff;
+  background-image: var(--acento-degradado);
+  box-shadow: var(--acento-sombra);
+}
+
+.boton--primario:hover:not(:disabled) {
+  filter: brightness(1.06);
+}
+
+.boton--secundario {
+  color: var(--texto);
+  background-image: var(--boton-vidrio);
+  box-shadow: var(--boton-vidrio-sombra);
+}
+
+.boton--secundario:hover:not(:disabled) {
+  background-image: var(--boton-vidrio-hover);
+}
+
+.boton--fantasma {
+  height: 34px;
+  padding: 0 14px;
+  font-size: 14px;
+  color: var(--acento-texto);
+  background: transparent;
+}
+
+.boton--fantasma:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--acento) 14%, transparent);
+}
+
+.boton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: none;
+}
+
+/* Píldora */
+.pildora {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  height: 22px;
+  padding: 0 10px;
+  border-radius: var(--radio-pildora);
+  font-size: var(--tam-micro);
+  font-weight: var(--peso-medio);
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--texto);
+  background: var(--relleno);
+}
+
+.pildora--color {
+  padding-left: 8px;
+  background: color-mix(in srgb, var(--pildora-color) 16%, transparent);
+}
+
+.pildora__punto {
+  width: 8px;
+  height: 8px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--pildora-color);
+}
+
+.pildora__texto {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Control segmentado */
+.segmentado {
+  position: relative;
+  display: inline-flex;
+  padding: 3px;
+  border-radius: var(--radio-pildora);
+  background: var(--relleno);
+}
+
+.segmentado__lente {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 0;
+  border-radius: var(--radio-pildora);
+  background-image: var(--lente);
+  box-shadow: var(--lente-sombra);
+  pointer-events: none;
+  transition: transform 0.6s cubic-bezier(0.3, 1.45, 0.5, 1), width 0.6s cubic-bezier(0.3, 1.45, 0.5, 1);
+}
+
+.segmentado__opcion {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: var(--radio-pildora);
+  font: inherit;
+  font-size: 14px;
+  font-weight: var(--peso-medio);
+  color: var(--texto-suave);
+  background: transparent;
+  cursor: pointer;
+  transition: color var(--dur-cambio);
+}
+
+.segmentado__opcion:has(.segmentado__icono) {
+  padding-left: 12px;
+}
+
+.segmentado__opcion:hover,
+.segmentado__opcion[aria-checked='true'] {
+  color: var(--texto);
+}
+
+.segmentado__icono {
+  display: inline-flex;
+}
+
+.segmentado__icono svg {
+  width: 17px;
+  height: 17px;
+}
+
+.segmentado--chico .segmentado__opcion {
+  height: 28px;
+  padding: 0 11px;
+  font-size: 13px;
+}
+
+/* Avatar */
+.avatar {
+  position: relative;
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  border-radius: 50%;
+  font-weight: var(--peso-fuerte);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: #fff;
+  background: var(--relleno);
+  box-shadow: 0 0 0 2px var(--aro);
+  user-select: none;
+}
+
+.avatar--grande {
+  box-shadow: 0 0 0 3px var(--aro), var(--sombra-flotante);
+}
+
+.avatar img {
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar--iniciales {
+  background-image: linear-gradient(150deg, color-mix(in srgb, var(--avatar-tono) 62%, #fff), var(--avatar-tono) 70%);
+}
+
+.avatar--vacio {
+  color: var(--texto-suave);
+}
+
+.avatar__presencia {
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--presencia-conectado);
+  box-shadow: 0 0 0 2px var(--aro);
+}
+
+.avatar__presencia[data-presencia='trabajando'] { background: var(--presencia-foco); }
+.avatar__presencia[data-presencia='reunion'] { background: var(--presencia-reunion); }
+.avatar__presencia[data-presencia='vacaciones'] { background: var(--presencia-vacaciones); }
+.avatar__presencia[data-presencia='ausente'] { background: var(--presencia-ausente); }
+
+/* «Sin OpenDash»: círculo hueco, para no confundirlo con «ausente». */
+.avatar__presencia[data-presencia='sin-opendash'] {
+  background: var(--fondo);
+  box-shadow: inset 0 0 0 2px var(--presencia-ausente), 0 0 0 2px var(--aro);
+}
+
+/* Variación («+22 %», «−3 pts») */
+.variacion {
+  font-size: var(--tam-mini);
+  font-weight: var(--peso-fuerte);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.variacion--sube { color: var(--variacion-sube); }
+.variacion--baja { color: var(--variacion-baja); }
+.variacion--neutro { color: var(--texto-suave); }
+
+/* Estrella para fijar proyectos */
+.estrella {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: var(--texto-suave);
+  background: transparent;
+  transition: background var(--dur-cambio);
+}
+
+.estrella:hover {
+  background: color-mix(in srgb, var(--relleno) 75%, transparent);
+}
+
+.estrella[aria-pressed='true'] {
+  color: var(--estrella-activa);
+}
+
+.estrella[aria-pressed='true'] svg {
+  fill: currentcolor;
+}
+
+/* Barra de progreso (proyectos, carga) */
+.barra-progreso {
+  --barra-color: var(--acento-claro);
+  height: 8px;
+  overflow: hidden;
+  border-radius: var(--radio-pildora);
+  background: var(--grafico-pista);
+}
+
+.barra-progreso__relleno {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--barra-color) 60%, transparent), var(--barra-color));
+  transform-origin: left center;
+}
+
+.barra-progreso[data-excedida='true'] {
+  --barra-color: var(--carga-excedida);
+}
+
+/* Contador */
+.contador {
+  display: grid;
+  gap: 2px;
+  min-width: 112px;
+  margin: 0;
+  padding: 10px 16px;
+  border-radius: var(--radio-pieza);
+  background: var(--vidrio);
+  box-shadow: var(--pieza-sombra);
+  -webkit-backdrop-filter: var(--pieza-desenfoque);
+  backdrop-filter: var(--pieza-desenfoque);
+}
+
+.contador__etiqueta {
+  font-size: var(--tam-mini);
+  font-weight: var(--peso-suave);
+  color: var(--texto-suave);
+}
+
+.contador__valor {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.contador__valor b {
+  font-size: var(--tam-valor);
+  font-weight: 700;
+}
+
+.contador__valor .variacion {
+  margin-left: 2px;
+}
+
+.contador__valor small {
+  font-size: 14px;
+  font-weight: var(--peso-medio);
+  color: var(--texto-suave);
+}
+
+/* Aviso */
+.aviso {
+  --aviso-tono: var(--acento);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--radio-panel);
+  font-size: 14px;
+  color: var(--texto);
+  background: linear-gradient(140deg,
+      color-mix(in srgb, var(--aviso-tono) 22%, transparent),
+      color-mix(in srgb, var(--aviso-tono) 8%, transparent));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--aviso-tono) 26%, transparent);
+}
+
+.aviso--error {
+  --aviso-tono: var(--peligro);
+}
+
+.aviso__icono {
+  margin-top: 1px;
+  color: var(--acento-texto);
+}
+
+.aviso--error .aviso__icono {
+  color: var(--peligro-texto);
+}
+
+/* Interruptor */
+.interruptor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-4);
+}
+
+.interruptor__texto {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.interruptor__etiqueta { font-weight: var(--peso-medio); }
+
+.interruptor__ayuda {
+  font-size: var(--tam-chico);
+  color: var(--texto-suave);
+}
+
+.interruptor__boton {
+  position: relative;
+  flex: none;
+  width: 46px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radio-pildora);
+  background: var(--relleno-hover);
+  cursor: pointer;
+  transition: background var(--dur-cambio), box-shadow var(--dur-cambio);
+}
+
+.interruptor__boton--activo { background: var(--exito); }
+
+.interruptor__boton:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--anillo-foco);
+}
+
+.interruptor__boton[aria-disabled='true'] {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.interruptor__perilla {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.35);
+  transition: transform var(--dur-cambio);
+}
+
+.interruptor__boton--activo .interruptor__perilla { transform: translateX(18px); }
+
+/* Pastilla «Ahora» de la reunión en curso (Calendario e Inicio) */
+.pildora-ahora {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 10px;
+  border-radius: var(--radio-pildora);
+  font-size: var(--tam-micro);
+  font-weight: 700;
+  color: #fff;
+  background: var(--carga-excedida);
+}

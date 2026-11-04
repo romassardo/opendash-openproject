@@ -1,0 +1,410 @@
+/* Pantalla Métricas: contadores, selector de período y cuatro tarjetas. */
+
+.metricas__barra {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 2vw;
+}
+
+.metricas__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.metricas__falla {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 12px;
+}
+
+.metricas__grilla {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--espacio-4);
+}
+
+.metricas__tarjeta,
+.metricas__carga {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-3);
+  min-width: 0;
+}
+
+.metricas__ritmo { grid-column: span 8; }
+.metricas__proyectos { grid-column: span 4; }
+.metricas__horas { grid-column: span 5; align-self: start; }
+.metricas__carga { grid-column: 1 / -1; }
+
+@media (max-width: 1100px) {
+  .metricas__ritmo,
+  .metricas__proyectos,
+  .metricas__horas,
+  .metricas__carga { grid-column: 1 / -1; }
+}
+
+.metricas__cabeza {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+}
+
+.metricas__cabeza .boton {
+  height: 34px;
+  padding: 0 14px;
+  font-size: var(--tam-chico);
+}
+
+.metricas__cabeza .boton[aria-pressed='true'] { background: var(--boton-vidrio-hover); }
+
+.metricas__total {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.metricas__total b {
+  font-size: 30px;
+  font-weight: var(--peso-titulo);
+  line-height: 1;
+}
+
+.metricas__total span,
+.metricas__total small {
+  color: var(--texto-suave);
+  font-size: var(--tam-chico);
+}
+
+.metricas__leyenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  margin: 0;
+  font-size: var(--tam-chico);
+  color: var(--texto-suave);
+}
+
+.metricas__leyenda span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.metricas__marca {
+  width: 16px;
+  height: 0;
+  border-top: 2px dashed var(--texto-tenue);
+}
+
+.metricas__marca--actual {
+  border-top: 2.6px solid var(--acento-texto);
+}
+
+.metricas__resumen {
+  margin: 0;
+  font-size: var(--tam-subtitulo);
+  font-weight: var(--peso-fuerte);
+}
+
+/* Tabla del ritmo: los mismos datos del gráfico, para leerlos o copiarlos. */
+.metricas__tabla-caja {
+  max-height: 340px;
+  overflow: auto;
+}
+
+.metricas__tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--tam-chico);
+}
+
+.metricas__tabla th,
+.metricas__tabla td {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--grafico-rejilla);
+}
+
+.metricas__tabla th:not(:first-child),
+.metricas__tabla td:not(:first-child) { text-align: right; }
+
+.metricas__tabla th {
+  position: sticky;
+  top: 0;
+  color: var(--texto-suave);
+  font-weight: var(--peso-medio);
+  background: var(--vidrio-denso);
+}
+
+.metricas__solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Por proyecto */
+.metricas__dona {
+  display: grid;
+  place-items: center;
+  padding: var(--espacio-3) 0;
+}
+
+.metricas__proyectos-lista {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.metricas__proyecto {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto 3.4em;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--grafico-rejilla);
+  font-size: var(--tam-cuerpo);
+}
+
+.metricas__proyecto:last-child { border-bottom: 0; }
+
+.metricas__punto {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.metricas__proyecto-nombre {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: var(--peso-medio);
+}
+
+.metricas__proyecto-porcentaje {
+  text-align: right;
+  color: var(--texto-suave);
+}
+
+/* Carga */
+.carga-lista {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.carga-fila {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: 8px var(--espacio-3);
+  padding: 8px;
+  border-radius: var(--radio-panel);
+}
+
+.carga-fila[data-abierta='true'] { background: var(--relleno); }
+
+.carga-fila__persona {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  border-radius: var(--radio-control);
+}
+
+.carga-fila__persona:focus-visible {
+  outline: 2px solid var(--anillo-foco);
+  outline-offset: 2px;
+}
+
+.carga-fila__texto {
+  display: grid;
+  min-width: 0;
+  margin-right: auto;
+}
+
+.carga-fila__texto b,
+.carga-fila__texto small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.carga-fila__texto small { color: var(--texto-suave); }
+
+.carga-fila__flecha {
+  flex: none;
+  color: var(--texto-tenue);
+  transition: transform 0.2s ease;
+}
+
+.carga-fila[data-abierta='true'] .carga-fila__flecha { transform: rotate(180deg); }
+
+.carga-fila__barra {
+  display: grid;
+  gap: 4px;
+}
+
+.carga-fila__numeros {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+  margin: 0;
+  color: var(--texto-suave);
+}
+
+.carga-fila__libres { color: var(--carga-ok); }
+.carga-fila__libres[data-excedida='true'] { color: var(--carga-excedida); }
+
+/* Total del equipo en el período: quiénes suman, y sus asignadas, capacidad y libres. */
+.carga-total {
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px;
+  border-radius: var(--radio-panel);
+  background: var(--relleno);
+  color: var(--texto-suave);
+  font-size: var(--tam-chico);
+}
+
+.carga-total__quien {
+  margin: 0;
+  color: var(--texto-tenue);
+}
+
+.carga-total__cifras {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.carga-total b {
+  margin-right: 4px;
+  color: var(--texto);
+  font-size: 18px;
+  font-weight: var(--peso-medio);
+}
+
+.carga-total__libres b { color: var(--carga-ok); }
+
+.carga-pie {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-2) var(--espacio-3);
+}
+
+.carga-largas {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 4px 0 4px 46px;
+  list-style: none;
+}
+
+.carga-larga {
+  display: grid;
+  gap: 6px;
+}
+
+.carga-larga__cabeza,
+.carga-larga__semana {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+  margin: 0;
+  font-size: var(--tam-chico);
+}
+
+.carga-larga__titulo {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: var(--peso-medio);
+}
+
+.carga-larga__fechas,
+.carga-larga__semana { color: var(--texto-suave); }
+
+.carga-larga__tramo {
+  position: relative;
+  height: 4px;
+  border-radius: var(--radio-pildora);
+  background: var(--grafico-pista);
+}
+
+.carga-larga__pasado {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: inherit;
+  background: var(--acento-texto);
+}
+
+.carga-larga__hoy {
+  position: absolute;
+  top: -4px;
+  width: 2px;
+  height: 12px;
+  margin-left: -1px;
+  border-radius: 1px;
+  background: var(--texto);
+}
+
+@media (max-width: 720px) {
+  /* El selector de período baja debajo del título en vez de apretarlo. */
+  .metricas__carga .metricas__cabeza { flex-wrap: wrap; }
+  .carga-fila { grid-template-columns: minmax(0, 1fr); }
+  .carga-largas { padding-left: 0; }
+}
+
+/* Trabajado contra estimado: barras horizontales dibujadas a mano, estimado arriba y trabajado abajo. */
+.metricas__real { grid-column: span 7; }
+.metricas__vacio { margin: 0; font-size: var(--tam-chico); color: var(--texto-suave); }
+.real-estimado__leyenda { margin-bottom: var(--espacio-3); }
+.real-estimado__muestra { display: block; width: 16px; height: 6px; border-radius: 3px; }
+.real-estimado { display: grid; gap: var(--espacio-3); margin: 0; padding: 0; list-style: none; }
+.real-estimado__fila {
+  display: grid;
+  grid-template-columns: minmax(0, 9rem) minmax(60px, 1fr) auto;
+  grid-template-areas: 'nombre grafico cociente' 'nombre grafico detalle';
+  align-items: center;
+  gap: 0 var(--espacio-3);
+}
+.real-estimado__nombre { grid-area: nombre; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--tam-chico); }
+.real-estimado__grafico { grid-area: grafico; display: grid; gap: 4px; width: 100%; }
+.real-estimado__barra { display: block; height: 6px; border-radius: 3px; }
+.real-estimado__estimado { background: color-mix(in srgb, var(--texto) 30%, transparent); }
+.real-estimado__real { background: var(--acento); }
+.real-estimado__real[data-pasado='true'] { background: var(--foco-reloj); }
+.real-estimado__cociente { grid-area: cociente; justify-self: end; font-weight: var(--peso-titulo); }
+.real-estimado__cociente[data-pasado='true'] { color: var(--foco-reloj); }
+.real-estimado__detalle { grid-area: detalle; justify-self: end; font-size: var(--tam-micro); color: var(--texto-suave); }
+
+@media (max-width: 1100px) {
+  .metricas__real { grid-column: 1 / -1; }
+}

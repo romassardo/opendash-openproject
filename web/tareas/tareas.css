@@ -1,0 +1,819 @@
+/* Pantalla Tareas. Medidas pensadas a 1440×900. */
+
+/* La pantalla ocupa el alto de la ventana: el tablero se estira hasta abajo y cada columna se desplaza
+   por dentro. El margen inferior negativo devuelve el relleno de 48 px de .marco__principal. */
+.pantalla-tareas {
+  /* Sin esto la columna implícita crece hasta el ancho de los chips de filtro y empuja la página de costado. */
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto minmax(0, 1fr);
+  height: calc(100dvh - 2 * var(--margen));
+  min-height: 600px;
+  margin-bottom: calc(var(--margen) - 48px);
+}
+
+/* Encabezado: contadores a la izquierda, vista y «Nueva tarea» a la derecha */
+.tareas__barra {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 2vw;
+}
+
+.contadores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tareas__acciones {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tareas__falla {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 12px;
+}
+
+/* Lista: una tarjeta de vidrio con grupos por columna. Se desplaza el contenido, no el vidrio: el
+   borde del vidrio es absoluto y, dentro de un contenedor que se desplaza, subiría con las filas. */
+.lista {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 0;
+}
+
+.lista__desplazable {
+  flex: 1;
+  min-height: 0;
+  padding: 18px 20px 14px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  border-radius: inherit;
+}
+
+.lista__cabeza {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.lista__titulo-grupo {
+  margin: 0;
+  font-size: 18px;
+  font-weight: var(--peso-fuerte);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.lista__sub {
+  margin: 4px 0 0;
+  font-size: var(--tam-chico);
+  color: var(--texto-suave);
+}
+
+.lista__grupo-cabeza {
+  margin: 14px 0 4px;
+  font-size: var(--tam-cuerpo);
+}
+
+.lista__grupo-boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 6px;
+  border: 0;
+  border-radius: var(--radio-pieza);
+  font: inherit;
+  font-weight: var(--peso-fuerte);
+  color: var(--texto);
+  background: none;
+  cursor: pointer;
+}
+
+.lista__grupo-boton:hover {
+  background: var(--relleno);
+}
+
+.lista__chevron {
+  color: var(--texto-suave);
+  transition: transform var(--dur-cambio);
+}
+
+.lista__chevron--cerrado {
+  transform: rotate(-90deg);
+}
+
+.lista__filas {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lista__fila {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr) minmax(0, 190px) 96px 82px 74px 28px;
+  align-items: center;
+  gap: 16px;
+  min-height: 52px;
+  padding: 6px 10px;
+  border-bottom: 1px solid color-mix(in srgb, var(--texto) 9%, transparent);
+  border-radius: var(--radio-pieza);
+  font-size: var(--tam-chico);
+  cursor: pointer;
+  transition: background var(--dur-cambio);
+}
+
+.lista__fila:hover {
+  background: var(--relleno);
+}
+
+.lista__fila--guardando {
+  opacity: 0.6;
+}
+
+.lista__check {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 2px solid var(--texto-tenue);
+  border-radius: 50%;
+  color: #fff;
+  background: none;
+  cursor: pointer;
+  transition: border-color var(--dur-cambio), background var(--dur-cambio);
+}
+
+.lista__check:hover:not(:disabled) {
+  border-color: var(--acento);
+}
+
+.lista__check--hecha {
+  border-color: var(--acento);
+  background: var(--acento);
+}
+
+.lista__check svg {
+  stroke-width: 3;
+}
+
+.lista__nombre {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--tam-cuerpo);
+  font-weight: var(--peso-medio);
+}
+
+.lista__nombre--hecha {
+  color: var(--texto-suave);
+}
+
+.lista__texto {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  text-align: left;
+  color: inherit;
+  background: none;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lista__avance {
+  flex: none;
+  width: 84px;
+}
+
+.lista__prioridad {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.lista__fila .pildora {
+  justify-self: start;
+}
+
+/* Barra de filtros */
+.filtros {
+  display: flex;
+  height: 54px;
+  padding: 0;
+  border-radius: var(--radio-pildora);
+}
+
+/* En pantallas angostas se desplaza de costado el contenido, no el vidrio (como en .lista). */
+.filtros__desplazable {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 7px;
+  border-radius: inherit;
+}
+
+.chip {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  max-width: 260px;
+  padding: 0 14px 0 11px;
+  border-radius: var(--radio-pildora);
+  font-size: 14.5px;
+  font-weight: var(--peso-medio);
+  white-space: nowrap;
+  color: var(--texto);
+  background: var(--relleno);
+  transition: background var(--dur-cambio), color var(--dur-cambio);
+}
+
+.chip:hover {
+  background: var(--relleno-hover);
+}
+
+.chip--activo {
+  background: color-mix(in srgb, var(--acento) 18%, transparent);
+}
+
+.chip--activo:hover {
+  background: color-mix(in srgb, var(--acento) 26%, transparent);
+}
+
+.chip:has(.chip__select:focus-visible) {
+  outline: 2px solid var(--anillo-foco);
+  outline-offset: 2px;
+}
+
+.chip__icono {
+  display: inline-flex;
+  color: var(--texto-suave);
+}
+
+.chip__texto {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chip__flecha {
+  margin-left: -2px;
+  color: var(--texto-suave);
+}
+
+/* El select nativo cubre el chip entero, invisible: teclado, lectores y menú del sistema funcionan igual. */
+.chip__select {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  font: inherit;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.filtros__texto {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 9px;
+  min-width: 160px;
+  height: 40px;
+  padding: 0 16px 0 14px;
+  border-radius: var(--radio-pildora);
+  color: var(--texto-suave);
+  background: var(--relleno);
+  cursor: text;
+}
+
+.filtros__texto:has(input:focus-visible) {
+  outline: 2px solid var(--anillo-foco);
+  outline-offset: 2px;
+}
+
+.filtros__texto input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  outline: none;
+  font: inherit;
+  font-size: var(--tam-cuerpo);
+  color: var(--texto);
+  background: transparent;
+}
+
+.filtros__texto input::placeholder {
+  color: var(--texto-suave);
+  opacity: 1;
+}
+
+/* Tablero */
+.tablero {
+  /* Las tarjetas entran como piezas, con un escalonado corto (ver Tablero.tsx). */
+  --dur-entrada: var(--dur-pieza);
+  --escalonado: 0.025s;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--espacio-4);
+  min-height: 0;
+  margin-top: calc(var(--espacio-4) - 1.6vw);
+}
+
+.tablero--espera {
+  --retraso-entrada: 0.65s;
+}
+
+.columna {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  padding: 14px 10px 12px;
+  transition: box-shadow var(--dur-cambio);
+}
+
+.columna--destino {
+  box-shadow: var(--vidrio-sombra), inset 0 0 0 2px color-mix(in srgb, var(--acento) 55%, transparent);
+}
+
+.columna__cabeza {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  padding: 0 2px 12px 8px;
+}
+
+.columna__punto {
+  width: 10px;
+  height: 10px;
+  flex: none;
+  border-radius: 50%;
+}
+
+.columna__punto--nuevo {
+  box-shadow: inset 0 0 0 2px var(--estado-nuevo);
+}
+
+.columna__punto--curso {
+  background: var(--estado-curso);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--estado-curso) 22%, transparent);
+}
+
+.columna__punto--pausa {
+  background: var(--estado-pausa);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--estado-pausa) 22%, transparent);
+}
+
+.columna__punto--cerrado {
+  background: var(--estado-cerrado);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--estado-cerrado) 22%, transparent);
+}
+
+.columna__nombre {
+  margin: 0;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: var(--peso-fuerte);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.columna__cuenta {
+  display: grid;
+  flex: none;
+  place-items: center;
+  height: 22px;
+  padding: 0 7px;
+  border-radius: var(--radio-pildora);
+  font-size: var(--tam-mini);
+  font-weight: var(--peso-fuerte);
+  line-height: 1;
+  color: var(--texto-suave);
+  background: var(--relleno);
+}
+
+.columna__mas {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin-left: auto;
+  border: 0;
+  border-radius: 50%;
+  color: var(--texto-suave);
+  background: transparent;
+  cursor: pointer;
+  transition: background var(--dur-cambio), color var(--dur-cambio);
+}
+
+.columna__mas:hover,
+.columna__mas[aria-expanded='true'] {
+  color: var(--texto);
+  background: var(--relleno-suave);
+}
+
+/* La lista se desplaza por dentro y llega hasta los bordes de la columna, así las sombras de las
+   tarjetas no se cortan; el radio de abajo acompaña al de la columna. */
+.columna__lista {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+  margin: -4px -10px -12px;
+  padding: 4px 10px 16px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-radius: 0 0 var(--radio-tarjeta) var(--radio-tarjeta);
+  scrollbar-width: none;
+}
+
+.columna__vacia {
+  margin: 18px 0 0;
+  font-size: var(--tam-chico);
+  text-align: center;
+  color: var(--texto-tenue);
+}
+
+/* Tarjeta de tarea */
+.tarjeta-tarea {
+  position: relative;
+  display: grid;
+  flex: none;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+  padding: 12px 12px 12px 14px;
+  border-radius: var(--radio-pieza);
+  color: var(--texto);
+  background: var(--vidrio-denso);
+  box-shadow: var(--pieza-sombra);
+  cursor: grab;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tarjeta-tarea::before,
+.tarjeta-tarea::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-cambio);
+}
+
+/* Al pasar el puntero la tarjeta se levanta un poco más. */
+.tarjeta-tarea::before {
+  box-shadow: var(--sombra-flotante);
+}
+
+.tarjeta-tarea::after {
+  box-shadow: 0 30px 46px -20px color-mix(in srgb, var(--acento) 55%, transparent);
+}
+
+.tarjeta-tarea:hover::before {
+  opacity: 0.8;
+}
+
+/* La copia que sigue al puntero va sobre otras tarjetas: lleva el desenfoque del vidrio denso. */
+.tarjeta-tarea--levantada {
+  cursor: grabbing;
+  transform: rotate(1.5deg);
+  -webkit-backdrop-filter: var(--vidrio-desenfoque-denso);
+  backdrop-filter: var(--vidrio-desenfoque-denso);
+}
+
+.tarjeta-tarea--levantada::before {
+  opacity: 1;
+}
+
+.tarjeta-tarea--levantada::after {
+  opacity: 1;
+}
+
+.tarjeta-tarea--fantasma {
+  opacity: 0.35;
+}
+
+.tarjeta-tarea--guardando {
+  cursor: progress;
+}
+
+.tarjeta__etiquetas {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  height: 24px;
+}
+
+.tarjeta__proyecto {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.etiqueta-prioridad {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 4px;
+  height: 22px;
+  padding: 0 7px;
+  border-radius: var(--radio-etiqueta);
+  font-size: var(--tam-micro);
+  font-weight: var(--peso-fuerte);
+  line-height: 1;
+  color: var(--aviso-texto);
+  background: color-mix(in srgb, var(--aviso) 16%, transparent);
+}
+
+.etiqueta-prioridad--urgente {
+  color: var(--peligro-texto);
+  background: color-mix(in srgb, var(--peligro) 16%, transparent);
+}
+
+.tarjeta__titulo-tarea {
+  margin: 0;
+  font-size: var(--tam-cuerpo);
+  font-weight: var(--peso-medio);
+  line-height: 1.32;
+  overflow-wrap: anywhere;
+}
+
+.tarjeta__titulo-tarea--hecha {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+  color: var(--texto-suave);
+}
+
+.tarjeta__hecha {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--acento);
+}
+
+.tarjeta__hecha svg {
+  stroke-width: 3;
+}
+
+.tarjeta__avance {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: var(--tam-mini);
+  font-weight: var(--peso-fuerte);
+  line-height: 1;
+  color: var(--texto-suave);
+}
+
+.tarjeta__avance-pista {
+  flex: 1;
+  height: 4px;
+  overflow: hidden;
+  border-radius: var(--radio-pildora);
+  background: var(--relleno);
+}
+
+.tarjeta__avance-relleno {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--tarjeta-tono);
+}
+
+.tarjeta__pie {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  height: 22px;
+}
+
+.tarjeta__fecha,
+.tarjeta__comentarios {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--tam-mini);
+  font-weight: var(--peso-medio);
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--texto-suave);
+}
+
+.tarjeta__fecha--hoy {
+  color: var(--acento-texto);
+}
+
+.tarjeta__fecha--vencida {
+  color: var(--peligro-texto);
+}
+
+.tarjeta__avatar {
+  margin-left: auto;
+}
+
+.tarjeta__pie .horas-chico {
+  margin-left: auto;
+}
+
+.tarjeta__pie .horas-chico + .tarjeta__avatar {
+  margin-left: 0;
+}
+
+.lista__horas {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Horas trabajadas contra estimadas, en la tarjeta (arriba a la derecha) y junto al nombre en la lista */
+.horas-tarea {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--tam-mini);
+  font-weight: var(--peso-medio);
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--texto-suave);
+}
+
+.horas-tarea--pasada {
+  color: var(--peligro-texto);
+}
+
+.tarjeta__etiquetas .horas-tarea {
+  margin-left: auto;
+}
+
+/* Alta rápida dentro de una columna */
+.formulario-rapido {
+  display: grid;
+  flex: none;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+  padding: 12px;
+  border-radius: var(--radio-pieza);
+  background: var(--vidrio-denso);
+  box-shadow: var(--pieza-sombra), inset 0 0 0 1.5px color-mix(in srgb, var(--acento) 55%, transparent);
+}
+
+.formulario-rapido__titulo {
+  width: 100%;
+  min-width: 0;
+  height: 40px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: var(--radio-control);
+  font: inherit;
+  font-size: var(--tam-cuerpo);
+  font-weight: var(--peso-medio);
+  color: var(--texto);
+  background: var(--relleno);
+}
+
+.formulario-rapido__titulo::placeholder {
+  font-weight: 400;
+  color: var(--texto-tenue);
+}
+
+.formulario-rapido__proyecto {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.formulario-rapido__proyecto select {
+  width: 100%;
+  height: 34px;
+  padding: 0 32px 0 12px;
+  border: 0;
+  border-radius: var(--radio-pildora);
+  font: inherit;
+  font-size: 14px;
+  font-weight: var(--peso-medio);
+  color: var(--texto);
+  background: var(--relleno);
+  appearance: none;
+  cursor: pointer;
+}
+
+.formulario-rapido__proyecto svg {
+  position: absolute;
+  right: 11px;
+  color: var(--texto-suave);
+  pointer-events: none;
+}
+
+.formulario-rapido__acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.formulario-rapido__acciones .boton {
+  height: 34px;
+  padding: 0 14px;
+  font-size: 14px;
+}
+
+.formulario-rapido .aviso {
+  padding: 9px 12px;
+  font-size: 13.5px;
+}
+
+/* Aviso flotante cuando OpenProject rechaza un movimiento */
+.tablero__aviso {
+  position: fixed;
+  z-index: 45;
+  right: var(--espacio-6);
+  bottom: 72px;
+  left: calc(var(--margen) + var(--ancho-lateral) + var(--espacio-6));
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.tablero__aviso .aviso {
+  align-items: center;
+  max-width: 560px;
+  background: color-mix(in srgb, var(--peligro) 18%, var(--vidrio-denso));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--peligro) 30%, transparent), var(--sombra-flotante);
+  -webkit-backdrop-filter: var(--vidrio-desenfoque-denso);
+  backdrop-filter: var(--vidrio-desenfoque-denso);
+  pointer-events: auto;
+}
+
+.tablero__aviso .aviso__icono {
+  margin-top: 0;
+}
+
+.tablero__aviso .aviso__texto {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tablero__aviso-cerrar {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 50%;
+  color: var(--texto-suave);
+  background: transparent;
+  cursor: pointer;
+}
+
+.tablero__aviso-cerrar:hover {
+  color: var(--texto);
+  background: var(--relleno);
+}
+
+/* Pantallas angostas: el tablero se desplaza de costado en lugar de apretar las columnas. */
+@media (max-width: 1100px) {
+  .tablero {
+    grid-template-columns: repeat(4, minmax(240px, 1fr));
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  .filtros__desplazable {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+}

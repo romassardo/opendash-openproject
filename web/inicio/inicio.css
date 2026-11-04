@@ -1,0 +1,406 @@
+/* Pantalla Inicio: grilla de 12 columnas. */
+
+.inicio__barra {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 2vw;
+}
+
+.inicio__acciones {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.inicio__falla {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 12px;
+}
+
+.inicio__grilla {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--espacio-4);
+}
+
+.inicio__tarjeta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-3);
+  min-width: 0;
+}
+
+/* Primera fila: tarjetas de 367 px de alto. */
+.inicio__tarjeta--4:not(.inicio__tarjeta--baja) {
+  min-height: 367px;
+}
+
+.inicio__tarjeta--4 { grid-column: span 4; }
+.inicio__tarjeta--3 { grid-column: span 3; }
+.inicio__tarjeta--5 { grid-column: span 5; }
+.inicio__tarjeta--7 { grid-column: span 7; }
+
+.inicio__cabeza {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+}
+
+.inicio__enlace {
+  font-size: var(--tam-chico);
+  font-weight: var(--peso-medio);
+  color: var(--acento-texto);
+  text-decoration: none;
+}
+
+.inicio__enlace:hover {
+  text-decoration: underline;
+}
+
+.inicio__vacio {
+  margin: 0;
+  padding: var(--espacio-3) 0;
+  font-size: var(--tam-chico);
+  color: var(--texto-suave);
+}
+
+/* Hoy: anillos a la izquierda, leyenda a la derecha */
+.inicio__anillos {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+}
+
+.inicio__leyenda {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+}
+
+.inicio__leyenda-fila {
+  display: grid;
+  align-content: center;
+  min-height: 44px;
+  padding-left: 12px;
+  border-left: 2px solid var(--leyenda-color);
+  line-height: 1.15;
+}
+
+.inicio__leyenda-fila dt {
+  font-size: var(--tam-mini);
+  font-weight: var(--peso-suave);
+  color: var(--texto-suave);
+}
+
+.inicio__leyenda-fila dd {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin: 0;
+}
+
+.inicio__leyenda-fila b {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.inicio__leyenda-fila small {
+  font-size: 14px;
+  font-weight: var(--peso-medio);
+  color: var(--texto-suave);
+}
+
+/* Mis tareas */
+.inicio__filas {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.inicio__fila {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--texto) 9%, transparent);
+  transition: opacity var(--dur-cambio);
+}
+
+.inicio__fila:last-child {
+  border-bottom: 0;
+}
+
+.inicio__fila--guardando {
+  opacity: 0.6;
+}
+
+.inicio__fila-texto {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+  gap: 4px;
+}
+
+.inicio__fila-titulo {
+  overflow: hidden;
+  font-size: var(--tam-cuerpo);
+  font-weight: var(--peso-medio);
+  color: var(--texto);
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.inicio__fila-titulo:hover {
+  text-decoration: underline;
+}
+
+.inicio__fila-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Esta semana */
+.inicio__resumen {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: var(--peso-medio);
+}
+
+.inicio__resumen-contra {
+  font-size: var(--tam-mini);
+  color: var(--texto-suave);
+}
+
+.inicio__barras {
+  flex: 1;
+  min-height: 0;
+}
+
+/* Próximo: la reunión en curso o la siguiente, y las demás del día */
+.inicio__proximo {
+  display: flex;
+  gap: 14px;
+}
+
+.inicio__proximo-hora {
+  display: grid;
+  align-content: start;
+  gap: 2px;
+  min-width: 56px;
+  font-size: var(--tam-chico);
+  color: var(--texto-suave);
+}
+
+.inicio__proximo-hora b {
+  font-size: 18px;
+  color: var(--texto);
+}
+
+.inicio__proximo-cuerpo {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+  gap: 6px;
+}
+
+.inicio__proximo-titulo {
+  margin: 0;
+  font-size: var(--tam-cuerpo);
+  font-weight: var(--peso-medio);
+}
+
+.inicio__proximo-lugar {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--tam-chico);
+  color: var(--texto-suave);
+}
+
+.inicio__proximo-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.inicio__demas {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 10px 0 0;
+  list-style: none;
+  border-top: 1px solid color-mix(in srgb, var(--texto) 9%, transparent);
+}
+
+.inicio__demas-fila {
+  display: flex;
+  gap: 12px;
+  font-size: var(--tam-chico);
+}
+
+.inicio__demas-fila b {
+  min-width: 44px;
+  color: var(--texto-suave);
+}
+
+.inicio__sin-actualizar {
+  margin: 0;
+  font-size: var(--tam-chico);
+  color: var(--texto-suave);
+}
+
+@media (max-width: 1100px) {
+  .inicio__tarjeta--3,
+  .inicio__tarjeta--4,
+  .inicio__tarjeta--5,
+  .inicio__tarjeta--7 {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 700px) {
+  .inicio__tarjeta--3,
+  .inicio__tarjeta--4,
+  .inicio__tarjeta--5,
+  .inicio__tarjeta--7 {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Trabajando ahora */
+.inicio__subtitulo {
+  margin: var(--espacio-2) 0 0;
+  font-size: var(--tam-chico);
+  font-weight: var(--peso-medio);
+  color: var(--texto-suave);
+}
+
+/* «Retomar lo de ayer»: el botón y, al tocarlo, la lista para destildar. */
+.inicio__retomar {
+  align-self: flex-start;
+}
+
+.inicio__retomar-lista {
+  display: grid;
+  gap: var(--espacio-2);
+}
+
+.inicio__retomar-opciones {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.inicio__retomar-opciones legend {
+  margin-bottom: 4px;
+  padding: 0;
+}
+
+.inicio__retomar-opcion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--tam-chico);
+  cursor: pointer;
+}
+
+.inicio__retomar-opcion input {
+  accent-color: var(--acento);
+}
+
+.inicio__retomar-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.inicio__fila--horas { align-items: flex-start; }
+
+.horas-estado { font-size: 12.5px; color: var(--texto-suave); }
+.horas-estado[data-estado='rechazado'] { color: var(--hoy-tareas); }
+
+.horas-corregir {
+  flex: none;
+  height: 28px;
+  padding: 0 12px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--texto);
+  cursor: pointer;
+  background: var(--relleno);
+  border: 0;
+  border-radius: var(--radio-pildora);
+  transition: background var(--dur-cambio);
+}
+
+.horas-corregir:hover {
+  background: var(--relleno-hover);
+}
+
+.horas-corregir:focus-visible {
+  outline: 2px solid var(--acento);
+  outline-offset: 2px;
+}
+
+/* Quién falta */
+.inicio__falta-lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.inicio__falta-fila {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-2);
+  font-size: 14px;
+}
+
+.inicio__falta-fila svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  color: var(--texto-suave);
+}
+
+.inicio__falta-fila a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.inicio__falta-fila a:hover {
+  text-decoration: underline;
+}
+
+.inicio__falta-vacio {
+  margin: 0;
+  font-size: 14px;
+}
+
+.inicio__falta-nota {
+  margin: auto 0 0;
+  font-size: var(--tam-mini);
+  color: var(--texto-suave);
+}

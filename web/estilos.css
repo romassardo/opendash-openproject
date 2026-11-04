@@ -1,0 +1,71 @@
+@import "tailwindcss";
+@import "./estilos/tokens.css";
+@import "./estilos/base.css" layer(base);
+@import "./estilos/piezas.css" layer(components);
+
+/* Los tokens también como utilidades de Tailwind (bg-vidrio, text-texto-suave, rounded-tarjeta,
+   p-esp-5, shadow-vidrio…). `inline` hace que cada utilidad lea la variable y siga el tema. */
+@theme inline {
+  --font-sans: var(--fuente);
+
+  --color-fondo: var(--fondo);
+  --color-texto: var(--texto);
+  --color-texto-suave: var(--texto-suave);
+  --color-texto-tenue: var(--texto-tenue);
+  --color-relleno: var(--relleno);
+  --color-vidrio: var(--vidrio);
+  --color-vidrio-denso: var(--vidrio-denso);
+  --color-acento: var(--acento);
+  --color-acento-texto: var(--acento-texto);
+  --color-peligro: var(--peligro);
+  --color-peligro-texto: var(--peligro-texto);
+  --color-exito: var(--exito);
+  --color-exito-texto: var(--exito-texto);
+  --color-aviso: var(--aviso);
+  --color-aviso-texto: var(--aviso-texto);
+  --color-en-linea: var(--en-linea);
+  --color-estado-nuevo: var(--estado-nuevo);
+  --color-estado-curso: var(--estado-curso);
+  --color-estado-pausa: var(--estado-pausa);
+  --color-estado-cerrado: var(--estado-cerrado);
+  --color-tono-azul: var(--tono-azul);
+  --color-tono-rosa: var(--tono-rosa);
+  --color-tono-violeta: var(--tono-violeta);
+  --color-tono-verde: var(--tono-verde);
+  --color-tono-naranja: var(--tono-naranja);
+  --color-tono-turquesa: var(--tono-turquesa);
+  --color-tono-indigo: var(--tono-indigo);
+  --color-tono-celeste: var(--tono-celeste);
+  --color-tono-lima: var(--tono-lima);
+  --color-tono-fucsia: var(--tono-fucsia);
+  --color-tono-cobre: var(--tono-cobre);
+  --color-tono-amarillo: var(--tono-amarillo);
+  --color-tono-coral: var(--tono-coral);
+
+  --radius-cromo: var(--radio-cromo);
+  --radius-tarjeta: var(--radio-tarjeta);
+  --radius-pieza: var(--radio-pieza);
+  --radius-panel: var(--radio-panel);
+  --radius-control: var(--radio-control);
+  --radius-etiqueta: var(--radio-etiqueta);
+  --radius-pildora: var(--radio-pildora);
+
+  --spacing-esp-1: var(--espacio-1);
+  --spacing-esp-2: var(--espacio-2);
+  --spacing-esp-3: var(--espacio-3);
+  --spacing-esp-4: var(--espacio-4);
+  --spacing-esp-5: var(--espacio-5);
+  --spacing-esp-6: var(--espacio-6);
+
+  --text-titulo: var(--tam-titulo);
+  --text-subtitulo: var(--tam-subtitulo);
+  --text-cuerpo: var(--tam-cuerpo);
+  --text-chico: var(--tam-chico);
+  --text-mini: var(--tam-mini);
+  --text-micro: var(--tam-micro);
+  --text-valor: var(--tam-valor);
+
+  --shadow-vidrio: var(--vidrio-sombra);
+  --shadow-pieza: var(--pieza-sombra);
+  --ease-entrada: var(--curva-entrada);
+}

@@ -1,0 +1,821 @@
+/* Panel de detalle de una tarea. Medidas del cajón de la referencia a 1440×900 (480 px de ancho,
+   a 14 px del borde, radio 32, vidrio denso, velo sin oscurecer); el resto, con los tokens. */
+
+.detalle-capa {
+  position: fixed;
+  z-index: 30;
+  inset: 0;
+}
+
+.detalle__velo {
+  position: absolute;
+  inset: 0;
+}
+
+.detalle {
+  position: absolute;
+  top: var(--margen);
+  right: var(--margen);
+  bottom: var(--margen);
+  display: flex;
+  flex-direction: column;
+  width: min(480px, calc(100vw - 2 * var(--margen)));
+  padding: 0;
+  overflow: hidden;
+  border-radius: var(--radio-cromo);
+}
+
+.detalle:focus {
+  outline: none;
+}
+
+/* Barra fija: etiquetas y cerrar. Lo demás se desplaza por debajo, con el borde de arriba esfumado. */
+.detalle__barra {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 15px 0 22px;
+}
+
+.detalle__desplazable {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 0;
+  padding: 10px 22px 24px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--relleno-hover) transparent;
+  -webkit-mask-image: linear-gradient(transparent, #000 10px);
+  mask-image: linear-gradient(transparent, #000 10px);
+}
+
+.detalle__cerrar {
+  display: grid;
+  flex: none;
+  margin-left: auto;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  color: var(--texto);
+  background-image: var(--boton-vidrio);
+  box-shadow: var(--boton-vidrio-sombra);
+  cursor: pointer;
+  transition: background var(--dur-cambio);
+}
+
+.detalle__cerrar:hover {
+  background-image: var(--boton-vidrio-hover);
+}
+
+.detalle__cargando {
+  margin: 10px 0 0;
+  font-size: var(--tam-cuerpo);
+  font-weight: 500;
+  color: var(--texto-suave);
+}
+
+.detalle__estado-vacio {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+.detalle__aviso-titulo {
+  margin: 0;
+  font-size: 22px;
+  font-weight: var(--peso-titulo);
+  letter-spacing: -0.02em;
+}
+
+/* Cabeza: etiquetas, título editable y estado */
+.detalle__cabeza {
+  display: grid;
+  gap: 10px;
+}
+
+.detalle__etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  padding-right: 70px;
+}
+
+.detalle__prioridad {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 7px;
+  border-radius: var(--radio-etiqueta);
+  font-size: var(--tam-micro);
+  font-weight: var(--peso-fuerte);
+  line-height: 1;
+  color: var(--acento-texto);
+  background: color-mix(in srgb, var(--acento) 16%, transparent);
+}
+
+.detalle__titulo {
+  width: calc(100% + 8px);
+  margin: 0 -4px;
+  padding: 2px 4px;
+  border: 0;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 28px;
+  font-weight: var(--peso-titulo);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--texto);
+  background: transparent;
+  resize: none;
+  field-sizing: content;
+  transition: background var(--dur-cambio);
+}
+
+.detalle__titulo:hover,
+.detalle__titulo:focus {
+  background: var(--relleno);
+}
+
+.detalle__titulo:focus-visible {
+  outline-offset: 0;
+}
+
+.detalle__guardando {
+  position: absolute;
+  top: 26px;
+  right: 66px;
+  margin: 0;
+  font-size: var(--tam-mini);
+  color: var(--texto-suave);
+}
+
+.detalle__estado {
+  display: flex;
+  width: 100%;
+}
+
+.detalle__estado .segmentado__opcion {
+  flex: 1;
+  justify-content: center;
+  padding: 0 8px;
+}
+
+/* Grilla de campos */
+.detalle-campos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 11px;
+}
+
+.detalle-campo {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  min-width: 0;
+  padding: 12px 14px;
+  border-radius: var(--radio-panel);
+  background: var(--relleno);
+}
+
+.detalle-campo--ancho {
+  grid-column: 1 / -1;
+}
+
+.detalle-campo__etiqueta {
+  font-size: 13px;
+  font-weight: var(--peso-medio);
+  line-height: 1.2;
+  color: var(--texto);
+}
+
+.detalle-campo__valor {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  min-height: 28px;
+}
+
+.detalle-campo__icono {
+  display: inline-flex;
+  flex: none;
+  color: var(--texto-suave);
+}
+
+.detalle-campo__control {
+  flex: 1;
+  min-width: 0;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  font: inherit;
+  font-size: var(--tam-cuerpo);
+  font-weight: var(--peso-fuerte);
+  color: var(--texto);
+  background: transparent;
+}
+
+.detalle-campo__control::placeholder {
+  font-weight: 500;
+  color: var(--texto-tenue);
+}
+
+.detalle-campo__select {
+  padding-right: 22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  appearance: none;
+  cursor: pointer;
+}
+
+.detalle-campo__flecha {
+  position: absolute;
+  right: 0;
+  color: var(--texto-suave);
+  pointer-events: none;
+}
+
+/* El calendario nativo se abre tocando cualquier parte de la fecha (el ícono visible es el de la izquierda). */
+.detalle-campo__control[type='date'] {
+  position: relative;
+}
+
+.detalle-campo__control[type='date']::-webkit-calendar-picker-indicator {
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: auto;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.detalle-campo__horas {
+  flex: 0 1 auto;
+  min-width: 1ch;
+  field-sizing: content;
+}
+
+.detalle-campo__unidad {
+  font-weight: var(--peso-fuerte);
+  color: var(--texto-suave);
+}
+
+.detalle-madre {
+  display: grid;
+  flex: 1;
+  gap: 8px;
+  min-width: 0;
+}
+
+.detalle-madre__actual {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  min-height: 28px;
+  font-weight: var(--peso-fuerte);
+}
+
+.detalle-madre__actual > svg {
+  color: var(--texto-suave);
+}
+
+.detalle-madre__titulo {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.detalle-madre__vacia {
+  font-weight: 500;
+  color: var(--texto-tenue);
+}
+
+.detalle-madre__actual .detalle__quitar {
+  margin-left: auto;
+}
+
+/* Secciones */
+.detalle-seccion {
+  display: grid;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.detalle-seccion__cabeza {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 28px;
+}
+
+.detalle-seccion__titulo {
+  margin: 0;
+  font-size: var(--tam-cuerpo);
+  font-weight: var(--peso-titulo);
+  letter-spacing: -0.01em;
+}
+
+.detalle__cuenta {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: var(--radio-pildora);
+  font-size: var(--tam-micro);
+  font-weight: var(--peso-medio);
+  color: var(--texto-suave);
+  background: var(--relleno);
+}
+
+.detalle__vacio {
+  margin: 0;
+  font-size: 14px;
+  color: var(--texto-tenue);
+}
+
+.detalle__icono,
+.detalle__quitar {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: var(--texto-suave);
+  background: transparent;
+  cursor: pointer;
+  transition: background var(--dur-cambio), color var(--dur-cambio);
+}
+
+.detalle__icono:hover,
+.detalle__quitar:hover:not(:disabled):not([aria-disabled='true']) {
+  color: var(--texto);
+  background: var(--relleno);
+}
+
+.detalle__quitar:disabled,
+.detalle__quitar[aria-disabled='true'] {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* Filas de subtareas y de «Espera a…» */
+.detalle-filas {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+}
+
+.detalle-filas:empty {
+  display: none;
+}
+
+.detalle-fila {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 38px;
+  padding: 4px 6px;
+  border-radius: 12px;
+  transition: background var(--dur-cambio);
+}
+
+.detalle-fila:hover {
+  background: color-mix(in srgb, var(--relleno) 60%, transparent);
+}
+
+.detalle-fila .lista__check {
+  flex: none;
+}
+
+.detalle-fila__titulo {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font-weight: var(--peso-suave);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.detalle-fila__titulo--hecha {
+  color: var(--texto-tenue);
+  text-decoration: line-through;
+}
+
+.detalle__enlace {
+  color: inherit;
+  text-decoration: none;
+}
+
+.detalle__enlace:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Cajas de texto con forma de píldora (agregar subtarea, comentar, buscar) */
+.detalle__caja {
+  width: 100%;
+  min-width: 0;
+  height: 40px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: var(--radio-pildora);
+  font: inherit;
+  font-size: var(--tam-cuerpo);
+  color: var(--texto);
+  background: var(--relleno);
+  transition: background var(--dur-cambio);
+}
+
+.detalle__caja:hover {
+  background: var(--relleno-hover);
+}
+
+.detalle__caja::placeholder {
+  color: var(--texto-tenue);
+}
+
+.detalle-agregar {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.detalle-agregar .boton {
+  flex: none;
+  height: 38px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+textarea.detalle__caja {
+  height: auto;
+  min-height: 40px;
+  max-height: 180px;
+  padding: 9px 16px;
+  border-radius: 20px;
+  line-height: 22px;
+  resize: none;
+  field-sizing: content;
+}
+
+.detalle-descripcion {
+  display: grid;
+  gap: 10px;
+}
+
+textarea.detalle-descripcion__texto {
+  min-height: 132px;
+  max-height: 320px;
+  border-radius: var(--radio-panel);
+  font-family: ui-monospace, 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+  font-size: 13.5px;
+}
+
+.detalle-descripcion__previa {
+  padding: 10px 14px;
+  border-radius: var(--radio-panel);
+  box-shadow: inset 0 0 0 1px var(--relleno-hover);
+}
+
+.detalle__botones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.detalle__botones .boton {
+  height: 36px;
+  font-size: 14px;
+}
+
+/* Comentarios e historial */
+.detalle-comentarios {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+.detalle-comentarios:empty {
+  display: none;
+}
+
+.comentario {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 10px;
+}
+
+.comentario__cuerpo {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.comentario__cabeza {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin: 0;
+  font-size: 14px;
+}
+
+.detalle__fecha {
+  flex: none;
+  font-size: var(--tam-mini);
+  color: var(--texto-suave);
+}
+
+.detalle-historial {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  font-size: var(--tam-chico);
+  color: var(--texto-suave);
+}
+
+.detalle-historial__linea {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.detalle-historial__linea > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* «Tu versión»: lo escrito que chocó con un cambio ajeno, para reaplicarlo o descartarlo */
+.detalle-version {
+  display: grid;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: var(--radio-panel);
+  background: color-mix(in srgb, var(--acento) 10%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--acento) 35%, transparent);
+}
+
+.detalle-version__rotulo {
+  margin: 0;
+  font-size: var(--tam-micro);
+  font-weight: var(--peso-fuerte);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--acento-texto);
+}
+
+.detalle-version__texto {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.detalle-version__titulo {
+  margin: 0;
+  font-size: 17px;
+  font-weight: var(--peso-fuerte);
+}
+
+/* «Tenés cambios sin guardar»: aparece sobre el pie del panel al intentar cerrar con algo escrito */
+.detalle-salida {
+  position: absolute;
+  z-index: 3;
+  right: 14px;
+  bottom: 14px;
+  left: 14px;
+  display: grid;
+  gap: 6px;
+  padding: 14px 16px;
+  border-radius: var(--radio-panel);
+  background: color-mix(in srgb, var(--aviso) 14%, var(--vidrio-denso));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--aviso) 32%, transparent), var(--sombra-flotante);
+  -webkit-backdrop-filter: var(--vidrio-desenfoque-denso);
+  backdrop-filter: var(--vidrio-desenfoque-denso);
+}
+
+/* «Borrar tarea» lista mucho texto: opaca, para que lo de atrás del panel no se transparente entre las líneas */
+.detalle-salida--borrar {
+  background: color-mix(in srgb, var(--aviso) 14%, var(--fondo));
+}
+
+/* Variante para pregunta que nace dentro de una celda: se ancla al panel, no a la celda */
+.detalle-salida--fijo {
+  position: fixed;
+}
+
+.detalle-salida__titulo {
+  margin: 0;
+  font-size: var(--tam-cuerpo);
+  font-weight: var(--peso-fuerte);
+}
+
+.detalle-salida__texto {
+  margin: 0;
+  font-size: var(--tam-chico);
+  color: var(--texto-suave);
+}
+
+/* Aviso al pie del panel, siempre a la vista */
+.detalle__aviso {
+  position: sticky;
+  bottom: 0;
+  margin-top: auto;
+}
+
+.detalle__aviso .aviso {
+  align-items: center;
+  background: color-mix(in srgb, var(--acento) 18%, var(--vidrio-denso));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--acento) 30%, transparent), var(--sombra-flotante);
+  -webkit-backdrop-filter: var(--vidrio-desenfoque-denso);
+  backdrop-filter: var(--vidrio-desenfoque-denso);
+}
+
+.detalle__aviso .aviso--error {
+  background: color-mix(in srgb, var(--peligro) 18%, var(--vidrio-denso));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--peligro) 30%, transparent), var(--sombra-flotante);
+}
+
+.detalle__aviso .aviso__icono {
+  margin-top: 0;
+}
+
+.detalle__aviso .aviso__texto {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.detalle-fila--pisada {
+  flex-wrap: wrap;
+}
+
+/* «Espera a…»: la anterior que pisa a la tarea lleva su aviso y el botón que la corre detrás. */
+.detalle-fila__pisa {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 100%;
+  align-items: center;
+  gap: 8px;
+  order: 5;
+}
+
+.detalle-fila__aviso {
+  flex: 1 1 auto;
+  font-size: 13px;
+  color: var(--ambar-texto);
+}
+
+/* Adjuntos */
+.adjuntos {
+  display: grid;
+  gap: 8px;
+  padding: 4px;
+  border: 1px dashed transparent;
+  border-radius: 14px;
+  transition: border-color var(--dur-cambio), background var(--dur-cambio);
+}
+
+.adjuntos--encima {
+  border-color: var(--texto-tenue);
+  background: color-mix(in srgb, var(--relleno) 60%, transparent);
+}
+
+.adjuntos__pista {
+  margin: 0;
+  font-size: var(--tam-micro);
+  color: var(--texto-tenue);
+}
+
+.adjunto {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 4px 6px;
+  border-radius: 12px;
+}
+
+.adjunto__icono {
+  display: grid;
+  flex: none;
+  place-items: center;
+  color: var(--texto-suave);
+}
+
+.adjunto__datos {
+  display: grid;
+  flex: 1;
+  gap: 2px;
+  min-width: 0;
+}
+
+.adjunto__nombre {
+  overflow: hidden;
+  font-weight: var(--peso-suave);
+  color: inherit;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+a.adjunto__nombre:hover {
+  text-decoration: underline;
+}
+
+.adjunto__sub {
+  font-size: var(--tam-micro);
+  color: var(--texto-tenue);
+}
+
+.adjunto__progreso {
+  width: 100%;
+  height: 6px;
+}
+
+.adjunto__confirmar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--tam-micro);
+}
+
+/* «Borrar tarea» al pie del detalle y su confirmación */
+.detalle-borrar {
+  display: grid;
+  justify-items: start;
+  gap: 6px;
+  padding-top: 14px;
+  border-top: 1px solid var(--linea-franja-borde);
+}
+
+.detalle-borrar__boton {
+  color: var(--peligro-texto);
+}
+
+.detalle-borrar__motivo {
+  margin: 0;
+  font-size: var(--tam-micro);
+  color: var(--texto-suave);
+}
+
+.boton--peligro {
+  color: var(--peligro-texto);
+}
+
+.boton.boton--peligro {
+  background: var(--peligro);
+  color: #fff;
+}
+
+/* «Pausas»: dos fechas y el botón en una fila; el error y la ayuda abajo. */
+.detalle-pausar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.detalle-pausar__campo {
+  display: grid;
+  gap: 4px;
+}
+
+.detalle-pausar__campo input {
+  min-height: 36px;
+  padding: 0 10px;
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  color: inherit;
+  background: var(--relleno);
+  font: inherit;
+}
+
+.detalle-pausar__error,
+.detalle-pausar__ayuda {
+  flex-basis: 100%;
+}
+
+.detalle-pausar__ayuda {
+  font-size: 13px;
+}

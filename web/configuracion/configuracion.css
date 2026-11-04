@@ -1,0 +1,321 @@
+/* Pantalla Configuración: a la izquierda la persona y la navegación, a la derecha una tarjeta por sección. */
+
+.configuracion {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  align-items: start;
+  gap: var(--espacio-4);
+}
+
+@media (max-width: 900px) {
+  .configuracion { grid-template-columns: minmax(0, 1fr); }
+}
+
+.configuracion__lateral {
+  position: sticky;
+  top: var(--espacio-4);
+  display: grid;
+  gap: var(--espacio-3);
+  padding: var(--espacio-3);
+}
+
+@media (max-width: 900px) {
+  .configuracion__lateral { position: static; }
+}
+
+.configuracion__persona {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+  padding: var(--espacio-2) var(--espacio-2) var(--espacio-3);
+  border-bottom: 1px solid var(--grafico-rejilla);
+}
+
+.configuracion__persona > div { min-width: 0; }
+
+.configuracion__nombre {
+  margin: 0;
+  font-weight: var(--peso-fuerte);
+  overflow-wrap: anywhere;
+}
+
+.configuracion__nav {
+  display: grid;
+  gap: var(--espacio-1);
+}
+
+.configuracion__enlace {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+  height: var(--alto-control);
+  padding: 0 var(--espacio-3);
+  border-radius: var(--radio-control);
+  font-weight: var(--peso-medio);
+  color: var(--texto-suave);
+  text-decoration: none;
+  transition: background var(--dur-cambio), color var(--dur-cambio);
+}
+
+.configuracion__enlace:hover,
+.configuracion__enlace--activo {
+  color: var(--texto);
+  background: var(--relleno);
+}
+
+.configuracion__enlace:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--anillo-foco);
+}
+
+.configuracion__enlace-icono {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  color: var(--acento-texto);
+  background: var(--relleno);
+}
+
+.configuracion__enlace--activo .configuracion__enlace-icono {
+  color: #fff;
+  background: var(--acento);
+}
+
+.configuracion__secciones {
+  display: grid;
+  gap: var(--espacio-4);
+  min-width: 0;
+}
+
+.configuracion__seccion {
+  display: grid;
+  gap: var(--espacio-4);
+  padding: var(--espacio-5);
+  /* Al saltar desde la navegación, la tarjeta no queda pegada al borde. */
+  scroll-margin-top: var(--espacio-4);
+}
+
+.configuracion__cabeza {
+  display: grid;
+  gap: 2px;
+}
+
+.configuracion__perfil {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-4);
+}
+
+.configuracion__perfil .configuracion__nombre { font-size: var(--tam-subtitulo); }
+
+.configuracion__bloque {
+  display: grid;
+  gap: var(--espacio-3);
+  padding-top: var(--espacio-4);
+  border-top: 1px solid var(--grafico-rejilla);
+}
+
+.configuracion__fila {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+}
+
+.configuracion__fila > div:first-child { min-width: 0; flex: 1 1 220px; }
+
+.configuracion__rotulo {
+  margin: 0;
+  font-size: var(--tam-base, 1rem);
+  font-weight: var(--peso-fuerte);
+}
+
+.configuracion__estado {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: var(--tam-chico);
+  font-weight: var(--peso-medio);
+  color: var(--exito-texto);
+  background: color-mix(in srgb, var(--exito) 16%, transparent);
+}
+
+.configuracion__estado--falla {
+  color: var(--aviso-texto);
+  background: color-mix(in srgb, var(--aviso) 16%, transparent);
+}
+
+.configuracion__lista {
+  display: grid;
+  gap: var(--espacio-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.configuracion__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+}
+
+.configuracion__par {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--espacio-3);
+}
+
+.configuracion__tabla-caja { overflow-x: auto; }
+
+.configuracion__tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--tam-chico);
+}
+
+.configuracion__tabla th,
+.configuracion__tabla td {
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--grafico-rejilla);
+}
+
+.configuracion__tabla th {
+  color: var(--texto-suave);
+  font-weight: var(--peso-medio);
+}
+
+.configuracion__tabla td:last-child { text-align: right; }
+
+.configuracion__nombre-caja {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espacio-2);
+}
+
+/* Las filas pasadas se atenúan, pero «Quitar» sigue a plena vista. */
+.configuracion__tabla tr[data-pasado='true'] td:not(:last-child) { opacity: 0.5; }
+
+.configuracion__falla {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espacio-3);
+}
+
+.configuracion__solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.configuracion__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-2);
+}
+
+.configuracion__nota {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-2);
+  margin: 0;
+  font-size: var(--tam-chico);
+  color: var(--texto-suave);
+}
+
+/* Campo que se guarda solo: el «Guardado» o el error van debajo. */
+.guardable {
+  display: grid;
+  gap: var(--espacio-2);
+  max-width: 420px;
+}
+
+.guardado {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--tam-chico);
+  font-weight: var(--peso-medio);
+  color: var(--exito-texto);
+}
+
+/* Proyectos: una fila por proyecto con sus tonos e íconos */
+.configuracion__proyectos {
+  display: grid;
+  gap: var(--espacio-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.configuracion__proyecto {
+  display: grid;
+  gap: var(--espacio-3);
+  padding-top: var(--espacio-4);
+  border-top: 1px solid var(--grafico-rejilla);
+}
+
+.configuracion__proyecto-cabeza {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espacio-3);
+}
+
+.configuracion__nombre-proyecto {
+  font-weight: var(--peso-fuerte);
+  overflow-wrap: anywhere;
+}
+
+.configuracion__opciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-2);
+}
+
+.opcion-grupo {
+  display: grid;
+  place-items: center;
+  padding: 3px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  cursor: pointer;
+  transition: background var(--dur-cambio), box-shadow var(--dur-cambio);
+}
+
+.opcion-grupo:hover { background: var(--relleno); }
+
+.opcion-grupo[aria-checked='true'] {
+  background: var(--relleno);
+  box-shadow: inset 0 0 0 2px var(--anillo-foco);
+}
+
+.opcion-grupo:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--anillo-foco);
+}
+
+.muestra-tono {
+  display: block;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+}
+
+select.campo__entrada { padding-right: 14px; }
+
+/* El control segmentado de una fila propia no se estira al ancho de la tarjeta. */
+.configuracion__segmentado {
+  width: fit-content;
+  max-width: 100%;
+}

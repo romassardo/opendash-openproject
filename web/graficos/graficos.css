@@ -1,0 +1,245 @@
+/* Gráficos SVG propios. Los colores salen de tokens.css. */
+
+/* Anillos (Today y avance de proyecto): pista del color del anillo al 20 %, extremos redondeados. */
+.grafico-pista-anillo {
+  fill: none;
+  stroke: currentColor;
+  opacity: 0.2;
+}
+.grafico-trazo-anillo {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+}
+.grafico-valor-anillo {
+  fill: var(--texto);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+/* Dona */
+.grafico-dona {
+  position: relative;
+  width: 144px;
+  height: 144px;
+}
+.grafico-dona svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.grafico-pista-dona {
+  fill: none;
+  stroke: var(--grafico-pista);
+}
+.grafico-trazo-dona {
+  fill: none;
+  stroke-linecap: round;
+}
+.grafico-dona__centro {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 2px;
+  pointer-events: none;
+}
+.grafico-dona__centro b {
+  font-size: var(--tam-valor);
+  font-weight: var(--peso-titulo);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.grafico-dona__centro span {
+  font-size: var(--tam-micro);
+  font-weight: var(--peso-suave);
+  color: var(--texto-suave);
+}
+
+/* Rótulos y rejilla */
+.grafico-rotulo {
+  fill: var(--grafico-rotulo);
+  font-size: 12px;
+  font-weight: 500;
+}
+.grafico-rejilla {
+  stroke: var(--grafico-rejilla);
+  stroke-width: 1;
+  stroke-dasharray: 3 5;
+}
+
+/* Línea de ritmo */
+.grafico-linea {
+  position: relative;
+  width: 100%;
+  --globo-fondo: #1c1c20;
+}
+.grafico-linea svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.grafico-linea-actual {
+  fill: none;
+  stroke: var(--acento-texto);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.grafico-linea-anterior {
+  fill: none;
+  stroke: var(--texto-tenue);
+  stroke-width: 2;
+  stroke-dasharray: 5 6;
+  stroke-linecap: round;
+}
+.grafico-area-arriba {
+  stop-color: var(--acento);
+  stop-opacity: 0.28;
+}
+.grafico-area-abajo {
+  stop-color: var(--acento);
+  stop-opacity: 0;
+}
+.grafico-dia {
+  outline: none;
+}
+.grafico-dia__zona {
+  fill: transparent;
+}
+.grafico-cruz {
+  stroke: var(--grafico-rejilla);
+  stroke-width: 1;
+  pointer-events: none;
+}
+.grafico-punto {
+  fill: var(--acento-texto);
+  stroke: var(--globo-fondo);
+  stroke-width: 2.5;
+  pointer-events: none;
+}
+.grafico-dia:focus-visible .grafico-dia__zona {
+  fill: var(--relleno);
+  stroke: var(--anillo-foco);
+  stroke-width: 1.5;
+  rx: 6px;
+}
+.grafico-globo {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  gap: 4px;
+  min-width: 140px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: var(--globo-fondo);
+  color: #f5f5f7;
+  font-size: 13px;
+  box-shadow: var(--sombra-flotante);
+  pointer-events: none;
+  transform: translate(-50%, calc(-100% - 12px));
+  animation: grafico-globo-entra 0.15s ease-out;
+}
+.grafico-globo[data-lado='derecha'] {
+  transform: translate(-100%, calc(-100% - 12px));
+}
+.grafico-globo[data-lado='izquierda'] {
+  transform: translate(0, calc(-100% - 12px));
+}
+.grafico-globo b {
+  font-weight: 700;
+}
+.grafico-globo span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.grafico-globo em {
+  margin-left: auto;
+  padding-left: 12px;
+  font-style: normal;
+  font-weight: 650;
+}
+.grafico-globo__marca {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgb(235 235 245 / 0.55);
+}
+.grafico-globo__marca--actual {
+  background: #7db4ff;
+}
+@keyframes grafico-globo-entra {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Barras verticales */
+.grafico-barras {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.grafico-pista-barra {
+  fill: var(--grafico-pista);
+}
+.grafico-relleno-barra {
+  fill: var(--acento-texto);
+  transform-box: fill-box;
+  transition: opacity 0.15s;
+}
+.grafico-relleno-barra[data-destacada='true'] {
+  filter: drop-shadow(0 8px 10px color-mix(in srgb, var(--acento-texto) 45%, transparent));
+}
+.grafico-barra[data-atenuada='true'] .grafico-relleno-barra {
+  opacity: 0.5;
+}
+.grafico-barra:hover .grafico-relleno-barra {
+  opacity: 1;
+}
+
+/* Barra de carga: relleno hasta la capacidad, tramo de más en rojo y marca de capacidad. */
+.barra-carga {
+  position: relative;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--grafico-pista);
+}
+.barra-carga__relleno,
+.barra-carga__exceso {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+.barra-carga__relleno {
+  left: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--acento-texto) 60%, transparent), var(--acento-texto));
+}
+.barra-carga__exceso {
+  border-radius: 0 999px 999px 0;
+  background: var(--carga-excedida);
+}
+.barra-carga__marca {
+  position: absolute;
+  top: -4px;
+  width: 2.5px;
+  height: 18px;
+  margin-left: -1.25px;
+  border-radius: 2px;
+  background: var(--texto);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grafico-globo {
+    animation: none;
+  }
+  .grafico-relleno-barra {
+    transition: none;
+  }
+}

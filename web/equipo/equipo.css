@@ -1,0 +1,163 @@
+/* Pantalla Equipo: tarjetas en grilla de tres columnas. */
+
+.equipo__barra {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 2vw;
+}
+
+.equipo__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.equipo__falla {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 12px;
+}
+
+.equipo__grilla {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--espacio-4);
+}
+
+@media (max-width: 1100px) {
+  .equipo__grilla { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 720px) {
+  .equipo__grilla { grid-template-columns: minmax(0, 1fr); }
+}
+
+.equipo__vacio {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--texto-suave);
+}
+
+.tarjeta-persona {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-3);
+  min-width: 0;
+}
+
+.tarjeta-persona__cabeza {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+}
+
+.tarjeta-persona__titulo {
+  min-width: 0;
+}
+
+.tarjeta-persona__titulo .tarjeta__titulo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.tarjeta-persona__titulo .tarjeta__sub {
+  margin: 2px 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tarjeta-persona__estado {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+  font-size: var(--tam-chico);
+  color: var(--texto-suave);
+}
+
+.tarjeta-persona__estado > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tarjeta-persona__punto {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--presencia-conectado);
+}
+
+.tarjeta-persona__estado[data-presencia='trabajando'] .tarjeta-persona__punto { background: var(--presencia-foco); }
+.tarjeta-persona__estado[data-presencia='reunion'] .tarjeta-persona__punto { background: var(--presencia-reunion); }
+.tarjeta-persona__estado[data-presencia='vacaciones'] .tarjeta-persona__punto { background: var(--presencia-vacaciones); }
+.tarjeta-persona__estado[data-presencia='ausente'] .tarjeta-persona__punto { background: var(--presencia-ausente); }
+.tarjeta-persona__estado[data-presencia='sin-opendash'] .tarjeta-persona__punto {
+  background: transparent;
+  box-shadow: inset 0 0 0 2px var(--presencia-ausente);
+}
+
+.tarjeta-persona__carga {
+  display: grid;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--radio-panel);
+  background: var(--relleno);
+}
+
+.tarjeta-persona__carga-texto {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin: 0;
+  font-size: var(--tam-chico);
+}
+
+.tarjeta-persona__carga-texto > span {
+  margin-right: auto;
+  color: var(--texto-suave);
+}
+
+.tarjeta-persona__carga-texto small {
+  color: var(--texto-suave);
+  font-size: inherit;
+}
+
+.tarjeta-persona__pie {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  font-size: var(--tam-chico);
+  font-weight: var(--peso-medio);
+}
+
+.tarjeta-persona__tareas {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: auto;
+  min-width: 0;
+  color: var(--texto-suave);
+}
+
+.tarjeta-persona__pie .boton {
+  height: 34px;
+  padding: 0 16px;
+  font-size: var(--tam-chico);
+  text-decoration: none;
+}
+
+.tarjeta-persona__pie .tarjeta-persona__mensaje {
+  width: 34px;
+  padding: 0;
+}

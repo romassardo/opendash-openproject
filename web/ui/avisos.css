@@ -1,0 +1,35 @@
+/* Aviso flotante único del marco (la línea, el círculo, «Para ordenar») */
+.aviso-flotante {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: min(520px, calc(100vw - 32px));
+  background: var(--vidrio-denso);
+  -webkit-backdrop-filter: var(--vidrio-desenfoque-denso);
+  backdrop-filter: var(--vidrio-desenfoque-denso);
+  position: fixed;
+  z-index: 45;
+  right: var(--espacio-6);
+  bottom: 72px;
+  margin: 0;
+  padding: 10px 16px;
+  border-radius: 12px;
+  box-shadow: var(--sombra-flotante);
+}
+.aviso-flotante--error { border: 1px solid var(--peligro, #e03131); }
+.aviso-flotante__fila { display: flex; align-items: center; gap: 12px; }
+.aviso-flotante__texto { margin: 0; flex: 1; }
+.aviso-flotante__detalle { margin: 0; font-size: 0.9em; }
+.aviso-flotante__cerrar {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 50%;
+  color: var(--texto-suave);
+  background: transparent;
+  cursor: pointer;
+}
+.aviso-flotante__cerrar:hover { color: var(--texto); background: var(--relleno); }

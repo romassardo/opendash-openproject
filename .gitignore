@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+datos/
+.worktrees/
+test-results/
+playwright-report/
+pruebas/e2e/.op-prueba.json
+coverage/

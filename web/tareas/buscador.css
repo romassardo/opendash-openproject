@@ -1,0 +1,95 @@
+/* Buscador de tareas: se usa en el panel de la tarea y en Inicio («Trabajando ahora»), así que trae sus propios estilos. */
+.buscador__campo {
+  width: 100%;
+  min-width: 0;
+  height: 40px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: var(--radio-pildora);
+  font: inherit;
+  font-size: var(--tam-cuerpo);
+  color: var(--texto);
+  background: var(--relleno);
+  transition: background var(--dur-cambio);
+}
+
+.buscador__campo:hover {
+  background: var(--relleno-hover);
+}
+
+.buscador__campo::placeholder {
+  color: var(--texto-tenue);
+}
+
+.buscador {
+  position: relative;
+  display: grid;
+  gap: 6px;
+}
+
+.buscador__icono {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  color: var(--texto-tenue);
+  pointer-events: none;
+}
+
+.buscador__campo {
+  padding-left: 38px;
+}
+
+.buscador__sugerencias {
+  padding: 4px;
+  border-radius: var(--radio-panel);
+  background: var(--relleno);
+}
+
+.buscador__sugerencias ul {
+  display: grid;
+  gap: 2px;
+  max-height: 240px;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+}
+
+.buscador__opcion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 36px;
+  padding: 6px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.buscador__opcion--activa {
+  background: var(--relleno-hover);
+}
+
+.buscador__titulo {
+  min-width: 0;
+  overflow: hidden;
+  font-weight: var(--peso-suave);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.buscador__proyecto {
+  flex: none;
+  max-width: 45%;
+  overflow: hidden;
+  font-size: var(--tam-micro);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--texto-suave);
+}
+
+.buscador__vacio {
+  margin: 0;
+  padding: 8px 10px;
+  font-size: 14px;
+  color: var(--texto-tenue);
+}

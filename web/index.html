@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenDash</title>
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/iconos/180.png" />
+    <meta name="theme-color" content="#e4e4e7" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#232428" media="(prefers-color-scheme: dark)" />
+    <script>
+      // Tema guardado antes del primer cuadro, para no ver un destello del otro tema.
+      try {
+        var tema = localStorage.getItem('od:tema');
+        if (tema === 'claro' || tema === 'oscuro') document.documentElement.dataset.tema = tema;
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="raiz"></div>
+    <script type="module" src="/main.tsx"></script>
+  </body>
+</html>

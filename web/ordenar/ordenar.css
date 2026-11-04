@@ -1,0 +1,131 @@
+/* Pantalla «Para ordenar»: secciones de filas con el arreglo al lado. */
+
+.pantalla-ordenar {
+  display: grid;
+  align-content: start;
+  gap: var(--espacio-4);
+}
+
+.ordenar__seccion {
+  min-width: 0;
+}
+
+/* Cada sección es su propio contexto de apilado (vidrio): la que tiene un globito abierto pasa por encima de las de abajo. */
+.ordenar__seccion:has(.ordenar__globo) {
+  position: relative;
+  z-index: 5;
+}
+
+.ordenar__fila {
+  position: relative;
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr) minmax(0, 190px) 28px auto;
+  align-items: center;
+  gap: 16px;
+  min-height: 56px;
+  padding: 6px 10px;
+  border-bottom: 1px solid color-mix(in srgb, var(--texto) 9%, transparent);
+  border-radius: var(--radio-pieza);
+  font-size: var(--tam-chico);
+  transition: background var(--dur-cambio);
+}
+
+.ordenar__fila--carga {
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+}
+
+.ordenar__fila:hover {
+  background: var(--relleno);
+}
+
+.ordenar__fila--sale {
+  pointer-events: none;
+  animation: ordenar-sale 260ms ease-in forwards;
+}
+
+@keyframes ordenar-sale {
+  to {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+}
+
+.ordenar__texto {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.ordenar__titulo {
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--tam-cuerpo);
+  font-weight: var(--peso-medio);
+}
+
+.ordenar__motivo {
+  color: var(--texto-suave);
+}
+
+.ordenar__arreglo {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ordenar__globo {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 20;
+  display: grid;
+  min-width: 250px;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--borde, color-mix(in srgb, var(--texto) 14%, transparent));
+  border-radius: var(--radio-pieza);
+  background: var(--fondo-panel, var(--fondo));
+  box-shadow: 0 12px 32px rgb(0 0 0 / 0.25);
+}
+
+.ordenar__campo {
+  display: grid;
+  gap: 4px;
+  font-size: var(--tam-micro);
+  color: var(--texto-suave);
+}
+
+.ordenar__campo input,
+.ordenar__campo select {
+  padding: 6px 8px;
+  border: 1px solid color-mix(in srgb, var(--texto) 18%, transparent);
+  border-radius: 8px;
+  font: inherit;
+  color: var(--texto);
+  background: var(--relleno);
+}
+
+.ordenar__globo-botones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.ordenar__orden {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 40px;
+  color: var(--texto-suave);
+}
+
+.contador__enlace {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contador__enlace:hover {
+  text-decoration: underline;
+}

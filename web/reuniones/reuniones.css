@@ -1,0 +1,84 @@
+/* La esquina de arriba a la derecha: una columna con las islas del cronómetro y, debajo de la última (sean cuantas
+   sean), el aviso de reunión. Tokens de la app. */
+.esquina {
+  position: fixed;
+  z-index: 12;
+  top: calc(var(--margen) + 11px);
+  right: calc(var(--espacio-6) + var(--ancho-herramientas) + 14px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.aviso-reunion {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: min(360px, calc(100vw - 2 * var(--espacio-4)));
+  padding: 10px 12px;
+  font-size: var(--tam-chico);
+}
+
+.aviso-reunion__icono {
+  flex: none;
+}
+
+.aviso-reunion__texto {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.aviso-reunion__cuando {
+  font-weight: 600;
+}
+
+.aviso-reunion__unirse {
+  flex: none;
+  font-weight: 600;
+  color: inherit;
+}
+
+.aviso-reunion__unirse:focus-visible,
+.aviso-reunion__cerrar:focus-visible {
+  outline: 2px solid var(--anillo-foco);
+  outline-offset: 2px;
+}
+
+.aviso-reunion__cerrar {
+  flex: none;
+  display: inline-flex;
+  padding: 4px;
+  border: 0;
+  border-radius: 6px;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Pregunta del permiso de avisos del navegador: abajo a la izquierda, lejos de las preguntas del cronómetro. */
+.reuniones-permiso {
+  position: fixed;
+  z-index: 40;
+  left: calc(var(--margen) + var(--ancho-lateral) + var(--espacio-6));
+  bottom: var(--espacio-6);
+  display: grid;
+  gap: var(--espacio-3);
+  width: min(380px, calc(100vw - 2 * var(--espacio-4)));
+  padding: var(--espacio-4);
+}
+
+@media (max-width: 900px) {
+  .esquina {
+    top: calc(var(--margen) + 70px);
+    right: var(--espacio-6);
+  }
+
+  .reuniones-permiso {
+    left: var(--espacio-4);
+  }
+}

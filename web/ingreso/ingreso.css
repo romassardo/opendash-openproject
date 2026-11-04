@@ -1,0 +1,171 @@
+/* Ingreso y diálogo de token nuevo, con el mismo vidrio que el resto de la app. */
+
+.ingreso {
+  display: grid;
+  min-height: 100vh;
+  place-content: center;
+  justify-items: center;
+  gap: 22px;
+  padding: 48px 16px;
+}
+
+.ingreso__marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ingreso__tarjeta {
+  display: grid;
+  gap: 20px;
+  width: min(440px, calc(100vw - 32px));
+  padding: 28px;
+}
+
+.ingreso__cabeza {
+  display: grid;
+  gap: 6px;
+  text-wrap: pretty;
+}
+
+.ingreso__titulo {
+  margin: 0;
+  font-size: 28px;
+  font-weight: var(--peso-titulo);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.ingreso__modos {
+  display: flex;
+}
+
+.ingreso__modos .segmentado__opcion {
+  flex: 1;
+  justify-content: center;
+}
+
+.ingreso__pie {
+  margin: 0;
+  font-size: var(--tam-chico);
+  color: var(--texto-tenue);
+}
+
+/* Formularios */
+.formulario {
+  display: grid;
+  gap: 14px;
+}
+
+.formulario__enviar {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.campo {
+  display: grid;
+  gap: 6px;
+}
+
+.campo__etiqueta {
+  font-size: var(--tam-chico);
+  font-weight: var(--peso-medio);
+  color: var(--texto-suave);
+}
+
+.campo__entrada {
+  height: var(--alto-control);
+  padding: 0 14px;
+  border: 0;
+  border-radius: var(--radio-control);
+  font: inherit;
+  color: var(--texto);
+  background: var(--relleno);
+  transition: background var(--dur-cambio), box-shadow var(--dur-cambio);
+}
+
+.campo__entrada:hover {
+  background: var(--relleno-hover);
+}
+
+.campo__entrada:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--anillo-foco);
+}
+
+.campo__ayuda {
+  margin: 0;
+  font-size: var(--tam-mini);
+  color: var(--texto-tenue);
+}
+
+.pasos {
+  display: flex;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: var(--radio-panel);
+  background: var(--relleno);
+}
+
+.pasos__icono {
+  margin-top: 2px;
+  color: var(--acento-texto);
+}
+
+.pasos__titulo {
+  margin: 0 0 2px;
+  font-size: 14px;
+  font-weight: var(--peso-fuerte);
+}
+
+.pasos__texto {
+  margin: 0;
+  font-size: var(--tam-chico);
+  color: var(--texto-suave);
+}
+
+/* Diálogo */
+.velo {
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--velo);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.dialogo {
+  display: grid;
+  gap: 12px;
+  width: min(460px, 100%);
+  padding: 28px;
+}
+
+.dialogo__icono {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 30%;
+  color: #fff;
+  background-image: linear-gradient(150deg, color-mix(in srgb, var(--tono-naranja) 62%, #fff), var(--tono-naranja) 70%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.4), 0 10px 22px -10px var(--tono-naranja);
+}
+
+.dialogo__titulo {
+  margin: 0;
+  font-size: 21px;
+  font-weight: var(--peso-titulo);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.dialogo__acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 6px;
+}

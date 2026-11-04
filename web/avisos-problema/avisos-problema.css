@@ -1,0 +1,298 @@
+/* «Avisar un problema»: el diálogo y la pantalla «Problemas avisados». */
+
+.herramientas__punto--cuenta {
+  display: grid;
+  place-items: center;
+  top: 4px;
+  right: 3px;
+  width: auto;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: var(--radio-pildora);
+  font-size: 11px;
+  font-weight: var(--peso-medio);
+  line-height: 1;
+  color: #fff;
+}
+
+.avisar {
+  display: grid;
+  gap: var(--espacio-3);
+  width: min(560px, 100%);
+  max-height: 90vh;
+  padding: var(--espacio-4);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.avisar__cabeza {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.avisar__titulo,
+.avisar__subtitulo {
+  margin: 0;
+}
+
+.avisar__subtitulo {
+  font-size: var(--tam-chico);
+  color: var(--texto-suave);
+}
+
+.avisar__cerrar {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  color: var(--texto-suave);
+  background: transparent;
+  cursor: pointer;
+}
+
+.avisar__cerrar:hover {
+  background: var(--relleno-suave);
+}
+
+.avisar__texto {
+  width: 100%;
+  padding: 12px 14px;
+  border: 0;
+  border-radius: var(--radio-control);
+  font: inherit;
+  color: var(--texto);
+  background: var(--relleno);
+  resize: vertical;
+}
+
+.avisar__texto:hover {
+  background: var(--relleno-hover);
+}
+
+.avisar__texto:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--anillo-foco);
+}
+
+.avisar__contador {
+  margin: -6px 0 0;
+  text-align: right;
+  font-size: var(--tam-mini);
+  color: var(--texto-tenue);
+}
+
+.avisar__elegir {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: var(--radio-control);
+  font-size: var(--tam-chico);
+  color: var(--texto-suave);
+  background: var(--relleno);
+  cursor: pointer;
+}
+
+.avisar__elegir:hover,
+.avisar__elegir:focus-within {
+  background: var(--relleno-hover);
+}
+
+.avisar__archivo {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.avisar__adjunta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--tam-chico);
+}
+
+.avisar__adjunta img {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radio-etiqueta);
+  object-fit: cover;
+}
+
+.avisar__contexto {
+  font-size: var(--tam-micro);
+  color: var(--texto-tenue);
+}
+
+.avisar__contexto p,
+.avisar__contexto ul {
+  margin: 0;
+}
+
+.avisar__contexto ul {
+  padding-left: 16px;
+  overflow-wrap: anywhere;
+}
+
+.avisar__botones,
+.problemas__botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.avisar__gracias {
+  margin: 0;
+  color: var(--exito-texto);
+}
+
+.avisar__propios {
+  display: grid;
+  gap: 8px;
+  padding-top: var(--espacio-3);
+  border-top: 1px solid color-mix(in srgb, var(--texto) 9%, transparent);
+}
+
+.avisar__vacio {
+  margin: 0;
+  font-size: var(--tam-chico);
+  color: var(--texto-tenue);
+}
+
+.avisar__lista,
+.problemas__lista {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.avisar__item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--tam-chico);
+}
+
+.avisar__item-texto {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.avisar__item-meta {
+  font-size: var(--tam-micro);
+  color: var(--texto-tenue);
+}
+
+.avisar__estado {
+  padding: 2px 10px;
+  border-radius: var(--radio-pildora);
+  font-size: var(--tam-micro);
+  background: var(--relleno);
+}
+
+.avisar__estado--nuevo {
+  color: var(--aviso-texto);
+}
+
+.avisar__estado--arreglado {
+  color: var(--exito-texto);
+}
+
+.avisar__ver-todos {
+  justify-self: start;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: var(--tam-chico);
+  color: var(--texto-suave);
+  text-decoration: underline;
+  background: none;
+  cursor: pointer;
+}
+
+/* Pantalla «Problemas avisados» */
+.pantalla-problemas {
+  display: grid;
+  align-content: start;
+  gap: var(--espacio-4);
+}
+
+.problemas {
+  padding: var(--espacio-4);
+}
+
+.problemas__fila {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) auto;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--texto) 9%, transparent);
+}
+
+.problemas__cuerpo {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.problemas__quien,
+.problemas__texto {
+  margin: 0;
+}
+
+.problemas__quien {
+  font-size: var(--tam-chico);
+  color: var(--texto-suave);
+}
+
+.problemas__quien b {
+  color: var(--texto);
+}
+
+.problemas__texto {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.problemas__imagen {
+  max-width: min(320px, 100%);
+  max-height: 200px;
+  border-radius: var(--radio-panel);
+}
+
+.problemas__detalle {
+  font-size: var(--tam-micro);
+  color: var(--texto-tenue);
+  overflow-wrap: anywhere;
+}
+
+.problemas__estado {
+  display: grid;
+  justify-items: end;
+  align-content: start;
+  gap: 6px;
+}
+
+.problemas__marco {
+  font-size: var(--tam-micro);
+  color: var(--texto-tenue);
+}
+
+@media (max-width: 720px) {
+  .problemas__fila {
+    grid-template-columns: 36px minmax(0, 1fr);
+  }
+
+  .problemas__estado {
+    grid-column: 2;
+    justify-items: start;
+  }
+}

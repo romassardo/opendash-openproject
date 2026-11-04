@@ -1,0 +1,787 @@
+{
+  "_type": "Collection",
+  "total": 11,
+  "count": 11,
+  "pageSize": 20,
+  "offset": 1,
+  "_embedded": {
+    "elements": [
+      {
+        "favorited": false,
+        "_type": "Project",
+        "id": 21,
+        "identifier": "proyecto-1",
+        "name": "Proyecto 1",
+        "active": true,
+        "public": false,
+        "description": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "createdAt": "2026-10-09T14:05:45.800Z",
+        "updatedAt": "2026-10-09T14:05:45.872Z",
+        "statusExplanation": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "_links": {
+          "self": {
+            "href": "/api/v3/projects/21",
+            "title": "Proyecto 1"
+          },
+          "createWorkPackage": {
+            "href": "/api/v3/workspaces/21/work_packages/form",
+            "method": "post"
+          },
+          "createWorkPackageImmediately": {
+            "href": "/api/v3/workspaces/21/work_packages",
+            "method": "post"
+          },
+          "workPackages": {
+            "href": "/api/v3/workspaces/21/work_packages"
+          },
+          "storages": [],
+          "categories": {
+            "href": "/api/v3/workspaces/21/categories"
+          },
+          "versions": {
+            "href": "/api/v3/workspaces/21/versions"
+          },
+          "memberships": {
+            "href": "/api/v3/memberships?filters=%5B%7B%22project%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2221%22%5D%7D%7D%5D"
+          },
+          "types": {
+            "href": "/api/v3/workspaces/21/types"
+          },
+          "favor": {
+            "method": "post",
+            "href": "/api/v3/workspaces/21/favorite"
+          },
+          "schema": {
+            "href": "/api/v3/workspaces/schema"
+          },
+          "status": {
+            "href": null
+          },
+          "ancestors": [],
+          "projectStorages": {
+            "href": "/api/v3/project_storages?filters=%5B%7B%22projectId%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2221%22%5D%7D%7D%5D"
+          },
+          "parent": {
+            "href": null
+          }
+        }
+      },
+      {
+        "favorited": false,
+        "_type": "Project",
+        "id": 20,
+        "identifier": "proyecto-2",
+        "name": "Proyecto 2",
+        "active": true,
+        "public": true,
+        "description": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "createdAt": "2026-10-08T12:22:51.554Z",
+        "updatedAt": "2026-10-09T14:05:45.872Z",
+        "statusExplanation": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "_links": {
+          "self": {
+            "href": "/api/v3/projects/20",
+            "title": "Proyecto 2"
+          },
+          "workPackages": {
+            "href": "/api/v3/workspaces/20/work_packages"
+          },
+          "storages": [],
+          "categories": {
+            "href": "/api/v3/workspaces/20/categories"
+          },
+          "versions": {
+            "href": "/api/v3/workspaces/20/versions"
+          },
+          "types": {
+            "href": "/api/v3/workspaces/20/types"
+          },
+          "favor": {
+            "method": "post",
+            "href": "/api/v3/workspaces/20/favorite"
+          },
+          "schema": {
+            "href": "/api/v3/workspaces/schema"
+          },
+          "status": {
+            "href": "/api/v3/project_statuses/on_track",
+            "title": "Según lo previsto"
+          },
+          "ancestors": [],
+          "projectStorages": {
+            "href": "/api/v3/project_storages?filters=%5B%7B%22projectId%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2220%22%5D%7D%7D%5D"
+          },
+          "parent": {
+            "href": null
+          }
+        }
+      },
+      {
+        "favorited": false,
+        "_type": "Project",
+        "id": 17,
+        "identifier": "proyecto-3",
+        "name": "Proyecto 3",
+        "active": true,
+        "public": false,
+        "description": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "createdAt": "2026-10-07T10:26:12.869Z",
+        "updatedAt": "2026-10-09T14:05:45.872Z",
+        "statusExplanation": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "_links": {
+          "self": {
+            "href": "/api/v3/projects/17",
+            "title": "Proyecto 3"
+          },
+          "createWorkPackage": {
+            "href": "/api/v3/workspaces/17/work_packages/form",
+            "method": "post"
+          },
+          "createWorkPackageImmediately": {
+            "href": "/api/v3/workspaces/17/work_packages",
+            "method": "post"
+          },
+          "workPackages": {
+            "href": "/api/v3/workspaces/17/work_packages"
+          },
+          "storages": [],
+          "categories": {
+            "href": "/api/v3/workspaces/17/categories"
+          },
+          "versions": {
+            "href": "/api/v3/workspaces/17/versions"
+          },
+          "memberships": {
+            "href": "/api/v3/memberships?filters=%5B%7B%22project%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2217%22%5D%7D%7D%5D"
+          },
+          "types": {
+            "href": "/api/v3/workspaces/17/types"
+          },
+          "favor": {
+            "method": "post",
+            "href": "/api/v3/workspaces/17/favorite"
+          },
+          "schema": {
+            "href": "/api/v3/workspaces/schema"
+          },
+          "status": {
+            "href": null
+          },
+          "ancestors": [],
+          "projectStorages": {
+            "href": "/api/v3/project_storages?filters=%5B%7B%22projectId%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2217%22%5D%7D%7D%5D"
+          },
+          "parent": {
+            "href": null
+          }
+        }
+      },
+      {
+        "favorited": false,
+        "_type": "Project",
+        "id": 16,
+        "identifier": "proyecto-4",
+        "name": "Proyecto 4",
+        "active": true,
+        "public": true,
+        "description": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "createdAt": "2026-09-15T14:08:22.411Z",
+        "updatedAt": "2026-10-09T14:05:45.872Z",
+        "statusExplanation": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "_links": {
+          "self": {
+            "href": "/api/v3/projects/16",
+            "title": "Proyecto 4"
+          },
+          "createWorkPackage": {
+            "href": "/api/v3/workspaces/16/work_packages/form",
+            "method": "post"
+          },
+          "createWorkPackageImmediately": {
+            "href": "/api/v3/workspaces/16/work_packages",
+            "method": "post"
+          },
+          "workPackages": {
+            "href": "/api/v3/workspaces/16/work_packages"
+          },
+          "storages": [],
+          "categories": {
+            "href": "/api/v3/workspaces/16/categories"
+          },
+          "versions": {
+            "href": "/api/v3/workspaces/16/versions"
+          },
+          "memberships": {
+            "href": "/api/v3/memberships?filters=%5B%7B%22project%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2216%22%5D%7D%7D%5D"
+          },
+          "types": {
+            "href": "/api/v3/workspaces/16/types"
+          },
+          "favor": {
+            "method": "post",
+            "href": "/api/v3/workspaces/16/favorite"
+          },
+          "schema": {
+            "href": "/api/v3/workspaces/schema"
+          },
+          "status": {
+            "href": null
+          },
+          "ancestors": [],
+          "projectStorages": {
+            "href": "/api/v3/project_storages?filters=%5B%7B%22projectId%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2216%22%5D%7D%7D%5D"
+          },
+          "parent": {
+            "href": null
+          }
+        }
+      },
+      {
+        "favorited": false,
+        "_type": "Project",
+        "id": 15,
+        "identifier": "proyecto-5",
+        "name": "Proyecto 5",
+        "active": true,
+        "public": true,
+        "description": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "createdAt": "2026-09-09T17:27:10.999Z",
+        "updatedAt": "2026-10-09T14:05:45.872Z",
+        "statusExplanation": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "_links": {
+          "self": {
+            "href": "/api/v3/projects/15",
+            "title": "Proyecto 5"
+          },
+          "createWorkPackage": {
+            "href": "/api/v3/workspaces/15/work_packages/form",
+            "method": "post"
+          },
+          "createWorkPackageImmediately": {
+            "href": "/api/v3/workspaces/15/work_packages",
+            "method": "post"
+          },
+          "workPackages": {
+            "href": "/api/v3/workspaces/15/work_packages"
+          },
+          "storages": [],
+          "categories": {
+            "href": "/api/v3/workspaces/15/categories"
+          },
+          "versions": {
+            "href": "/api/v3/workspaces/15/versions"
+          },
+          "memberships": {
+            "href": "/api/v3/memberships?filters=%5B%7B%22project%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2215%22%5D%7D%7D%5D"
+          },
+          "types": {
+            "href": "/api/v3/workspaces/15/types"
+          },
+          "favor": {
+            "method": "post",
+            "href": "/api/v3/workspaces/15/favorite"
+          },
+          "schema": {
+            "href": "/api/v3/workspaces/schema"
+          },
+          "status": {
+            "href": null
+          },
+          "ancestors": [],
+          "projectStorages": {
+            "href": "/api/v3/project_storages?filters=%5B%7B%22projectId%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2215%22%5D%7D%7D%5D"
+          },
+          "parent": {
+            "href": null
+          }
+        }
+      },
+      {
+        "favorited": false,
+        "_type": "Project",
+        "id": 13,
+        "identifier": "proyecto-6",
+        "name": "Proyecto 6",
+        "active": true,
+        "public": true,
+        "description": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "createdAt": "2026-09-07T14:41:38.634Z",
+        "updatedAt": "2026-10-09T14:05:45.872Z",
+        "statusExplanation": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "_links": {
+          "self": {
+            "href": "/api/v3/projects/13",
+            "title": "Proyecto 6"
+          },
+          "createWorkPackage": {
+            "href": "/api/v3/workspaces/13/work_packages/form",
+            "method": "post"
+          },
+          "createWorkPackageImmediately": {
+            "href": "/api/v3/workspaces/13/work_packages",
+            "method": "post"
+          },
+          "workPackages": {
+            "href": "/api/v3/workspaces/13/work_packages"
+          },
+          "storages": [],
+          "categories": {
+            "href": "/api/v3/workspaces/13/categories"
+          },
+          "versions": {
+            "href": "/api/v3/workspaces/13/versions"
+          },
+          "memberships": {
+            "href": "/api/v3/memberships?filters=%5B%7B%22project%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2213%22%5D%7D%7D%5D"
+          },
+          "types": {
+            "href": "/api/v3/workspaces/13/types"
+          },
+          "favor": {
+            "method": "post",
+            "href": "/api/v3/workspaces/13/favorite"
+          },
+          "schema": {
+            "href": "/api/v3/workspaces/schema"
+          },
+          "status": {
+            "href": "/api/v3/project_statuses/on_track",
+            "title": "Según lo previsto"
+          },
+          "ancestors": [],
+          "projectStorages": {
+            "href": "/api/v3/project_storages?filters=%5B%7B%22projectId%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2213%22%5D%7D%7D%5D"
+          },
+          "parent": {
+            "href": null
+          }
+        }
+      },
+      {
+        "favorited": false,
+        "_type": "Project",
+        "id": 12,
+        "identifier": "proyecto-7",
+        "name": "Proyecto 7",
+        "active": true,
+        "public": true,
+        "description": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "createdAt": "2026-09-07T12:49:48.718Z",
+        "updatedAt": "2026-10-09T14:05:45.872Z",
+        "statusExplanation": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "_links": {
+          "self": {
+            "href": "/api/v3/projects/12",
+            "title": "Proyecto 7"
+          },
+          "createWorkPackage": {
+            "href": "/api/v3/workspaces/12/work_packages/form",
+            "method": "post"
+          },
+          "createWorkPackageImmediately": {
+            "href": "/api/v3/workspaces/12/work_packages",
+            "method": "post"
+          },
+          "workPackages": {
+            "href": "/api/v3/workspaces/12/work_packages"
+          },
+          "storages": [],
+          "categories": {
+            "href": "/api/v3/workspaces/12/categories"
+          },
+          "versions": {
+            "href": "/api/v3/workspaces/12/versions"
+          },
+          "memberships": {
+            "href": "/api/v3/memberships?filters=%5B%7B%22project%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2212%22%5D%7D%7D%5D"
+          },
+          "types": {
+            "href": "/api/v3/workspaces/12/types"
+          },
+          "favor": {
+            "method": "post",
+            "href": "/api/v3/workspaces/12/favorite"
+          },
+          "schema": {
+            "href": "/api/v3/workspaces/schema"
+          },
+          "status": {
+            "href": null
+          },
+          "ancestors": [],
+          "projectStorages": {
+            "href": "/api/v3/project_storages?filters=%5B%7B%22projectId%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2212%22%5D%7D%7D%5D"
+          },
+          "parent": {
+            "href": null
+          }
+        }
+      },
+      {
+        "favorited": false,
+        "_type": "Project",
+        "id": 11,
+        "identifier": "proyecto-8",
+        "name": "Proyecto 8",
+        "active": true,
+        "public": true,
+        "description": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "createdAt": "2026-09-03T17:34:25.792Z",
+        "updatedAt": "2026-10-09T14:05:45.872Z",
+        "statusExplanation": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "_links": {
+          "self": {
+            "href": "/api/v3/projects/11",
+            "title": "Proyecto 8"
+          },
+          "createWorkPackage": {
+            "href": "/api/v3/workspaces/11/work_packages/form",
+            "method": "post"
+          },
+          "createWorkPackageImmediately": {
+            "href": "/api/v3/workspaces/11/work_packages",
+            "method": "post"
+          },
+          "workPackages": {
+            "href": "/api/v3/workspaces/11/work_packages"
+          },
+          "storages": [],
+          "categories": {
+            "href": "/api/v3/workspaces/11/categories"
+          },
+          "versions": {
+            "href": "/api/v3/workspaces/11/versions"
+          },
+          "memberships": {
+            "href": "/api/v3/memberships?filters=%5B%7B%22project%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2211%22%5D%7D%7D%5D"
+          },
+          "types": {
+            "href": "/api/v3/workspaces/11/types"
+          },
+          "favor": {
+            "method": "post",
+            "href": "/api/v3/workspaces/11/favorite"
+          },
+          "schema": {
+            "href": "/api/v3/workspaces/schema"
+          },
+          "status": {
+            "href": "/api/v3/project_statuses/on_track",
+            "title": "Según lo previsto"
+          },
+          "ancestors": [],
+          "projectStorages": {
+            "href": "/api/v3/project_storages?filters=%5B%7B%22projectId%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2211%22%5D%7D%7D%5D"
+          },
+          "parent": {
+            "href": null
+          }
+        }
+      },
+      {
+        "favorited": false,
+        "_type": "Project",
+        "id": 10,
+        "identifier": "proyecto-9",
+        "name": "Proyecto 9",
+        "active": true,
+        "public": false,
+        "description": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "createdAt": "2026-09-02T14:10:17.286Z",
+        "updatedAt": "2026-10-09T14:05:45.872Z",
+        "statusExplanation": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "_links": {
+          "self": {
+            "href": "/api/v3/projects/10",
+            "title": "Proyecto 9"
+          },
+          "createWorkPackage": {
+            "href": "/api/v3/workspaces/10/work_packages/form",
+            "method": "post"
+          },
+          "createWorkPackageImmediately": {
+            "href": "/api/v3/workspaces/10/work_packages",
+            "method": "post"
+          },
+          "workPackages": {
+            "href": "/api/v3/workspaces/10/work_packages"
+          },
+          "storages": [],
+          "categories": {
+            "href": "/api/v3/workspaces/10/categories"
+          },
+          "versions": {
+            "href": "/api/v3/workspaces/10/versions"
+          },
+          "memberships": {
+            "href": "/api/v3/memberships?filters=%5B%7B%22project%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2210%22%5D%7D%7D%5D"
+          },
+          "types": {
+            "href": "/api/v3/workspaces/10/types"
+          },
+          "favor": {
+            "method": "post",
+            "href": "/api/v3/workspaces/10/favorite"
+          },
+          "schema": {
+            "href": "/api/v3/workspaces/schema"
+          },
+          "status": {
+            "href": null
+          },
+          "ancestors": [],
+          "projectStorages": {
+            "href": "/api/v3/project_storages?filters=%5B%7B%22projectId%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2210%22%5D%7D%7D%5D"
+          },
+          "parent": {
+            "href": null
+          }
+        }
+      },
+      {
+        "favorited": false,
+        "_type": "Project",
+        "id": 9,
+        "identifier": "proyecto-10",
+        "name": "Proyecto 10",
+        "active": true,
+        "public": false,
+        "description": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "createdAt": "2026-09-01T14:29:14.981Z",
+        "updatedAt": "2026-10-09T14:05:45.872Z",
+        "statusExplanation": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "_links": {
+          "self": {
+            "href": "/api/v3/projects/9",
+            "title": "Proyecto 10"
+          },
+          "createWorkPackage": {
+            "href": "/api/v3/workspaces/9/work_packages/form",
+            "method": "post"
+          },
+          "createWorkPackageImmediately": {
+            "href": "/api/v3/workspaces/9/work_packages",
+            "method": "post"
+          },
+          "workPackages": {
+            "href": "/api/v3/workspaces/9/work_packages"
+          },
+          "storages": [],
+          "categories": {
+            "href": "/api/v3/workspaces/9/categories"
+          },
+          "versions": {
+            "href": "/api/v3/workspaces/9/versions"
+          },
+          "memberships": {
+            "href": "/api/v3/memberships?filters=%5B%7B%22project%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%229%22%5D%7D%7D%5D"
+          },
+          "types": {
+            "href": "/api/v3/workspaces/9/types"
+          },
+          "favor": {
+            "method": "post",
+            "href": "/api/v3/workspaces/9/favorite"
+          },
+          "schema": {
+            "href": "/api/v3/workspaces/schema"
+          },
+          "status": {
+            "href": null
+          },
+          "ancestors": [],
+          "projectStorages": {
+            "href": "/api/v3/project_storages?filters=%5B%7B%22projectId%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%229%22%5D%7D%7D%5D"
+          },
+          "parent": {
+            "href": null
+          }
+        }
+      },
+      {
+        "favorited": false,
+        "_type": "Project",
+        "id": 3,
+        "identifier": "proyecto-11",
+        "name": "Proyecto 11",
+        "active": true,
+        "public": false,
+        "description": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "createdAt": "2026-08-27T20:50:48.484Z",
+        "updatedAt": "2026-10-09T14:05:45.872Z",
+        "statusExplanation": {
+          "format": "markdown",
+          "raw": "",
+          "html": ""
+        },
+        "_links": {
+          "self": {
+            "href": "/api/v3/projects/3",
+            "title": "Proyecto 11"
+          },
+          "createWorkPackage": {
+            "href": "/api/v3/workspaces/3/work_packages/form",
+            "method": "post"
+          },
+          "createWorkPackageImmediately": {
+            "href": "/api/v3/workspaces/3/work_packages",
+            "method": "post"
+          },
+          "workPackages": {
+            "href": "/api/v3/workspaces/3/work_packages"
+          },
+          "storages": [],
+          "categories": {
+            "href": "/api/v3/workspaces/3/categories"
+          },
+          "versions": {
+            "href": "/api/v3/workspaces/3/versions"
+          },
+          "memberships": {
+            "href": "/api/v3/memberships?filters=%5B%7B%22project%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%223%22%5D%7D%7D%5D"
+          },
+          "types": {
+            "href": "/api/v3/workspaces/3/types"
+          },
+          "update": {
+            "href": "/api/v3/projects/3/form",
+            "method": "post"
+          },
+          "updateImmediately": {
+            "href": "/api/v3/projects/3",
+            "method": "patch"
+          },
+          "favor": {
+            "method": "post",
+            "href": "/api/v3/workspaces/3/favorite"
+          },
+          "schema": {
+            "href": "/api/v3/workspaces/schema"
+          },
+          "status": {
+            "href": "/api/v3/project_statuses/on_track",
+            "title": "Según lo previsto"
+          },
+          "ancestors": [],
+          "projectStorages": {
+            "href": "/api/v3/project_storages?filters=%5B%7B%22projectId%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%223%22%5D%7D%7D%5D"
+          },
+          "parent": {
+            "href": null
+          }
+        }
+      }
+    ]
+  },
+  "_links": {
+    "self": {
+      "href": "/api/v3/projects?filters=%5B%5D&offset=1&pageSize=20"
+    },
+    "jumpTo": {
+      "href": "/api/v3/projects?filters=%5B%5D&offset=%7Boffset%7D&pageSize=20",
+      "templated": true
+    },
+    "changeSize": {
+      "href": "/api/v3/projects?filters=%5B%5D&offset=1&pageSize=%7Bsize%7D",
+      "templated": true
+    },
+    "representations": [
+      {
+        "href": "/projects.csv?filters=%5B%5D&offset=1&pageSize=20",
+        "identifier": "csv",
+        "type": "text/csv",
+        "title": "CSV"
+      },
+      {
+        "href": "/projects.xls?filters=%5B%5D&offset=1&pageSize=20",
+        "identifier": "xls",
+        "type": "application/vnd.ms-excel",
+        "title": "XLS"
+      }
+    ]
+  }
+}

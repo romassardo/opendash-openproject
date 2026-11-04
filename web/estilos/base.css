@@ -1,0 +1,124 @@
+/* Base del documento, vidrio y tipografía. Usa solo los tokens de tokens.css. */
+
+html {
+  background: var(--fondo);
+}
+
+body,
+[data-tema] {
+  font-family: var(--fuente);
+  font-size: var(--tam-cuerpo);
+  line-height: var(--interlineado);
+  color: var(--texto);
+  background: var(--fondo-degradado);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+  background-attachment: fixed;
+}
+
+:focus-visible {
+  outline: 2px solid var(--anillo-foco);
+  outline-offset: 2px;
+}
+
+/* La base de Tailwind deja los <select> con fondo transparente y el color heredado: Chrome abre
+   su lista blanca con el texto claro del tema oscuro. Cada opción lleva su propio fondo. */
+option {
+  color: var(--texto);
+  background: var(--fondo);
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Vidrio esmerilado: fondo translúcido, reflejo y borde cónico. */
+.vidrio {
+  position: relative;
+  padding: var(--espacio-5);
+  border-radius: var(--radio-tarjeta);
+  background-color: var(--vidrio);
+  background-image: var(--vidrio-reflejo);
+  box-shadow: var(--vidrio-sombra);
+  -webkit-backdrop-filter: var(--vidrio-desenfoque);
+  backdrop-filter: var(--vidrio-desenfoque);
+}
+
+.vidrio::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: var(--vidrio-borde-ancho);
+  border-radius: inherit;
+  background: var(--vidrio-borde);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  pointer-events: none;
+}
+
+/* La referencia refracta el cromo con un filtro SVG que no aclara ni oscurece: sin brightness()
+   (medido en píxeles: con brillo la barra lateral clara quedaba #f5f5f9 en vez de #ebebef). */
+.vidrio--cromo {
+  border-radius: var(--radio-cromo);
+  background-color: var(--vidrio-cromo);
+  -webkit-backdrop-filter: var(--pieza-desenfoque);
+  backdrop-filter: var(--pieza-desenfoque);
+}
+
+.vidrio--denso {
+  background-color: var(--vidrio-denso);
+  -webkit-backdrop-filter: var(--vidrio-desenfoque-denso);
+  backdrop-filter: var(--vidrio-desenfoque-denso);
+}
+
+/* Tipografía de pantalla y de tarjeta. */
+.titulo-pantalla {
+  margin: 0;
+  font-size: var(--tam-titulo);
+  font-weight: var(--peso-titulo);
+  line-height: 1.02;
+  letter-spacing: var(--tracking-titulo);
+}
+
+.subtitulo-pantalla {
+  margin: 0;
+  font-size: var(--tam-subtitulo);
+  font-weight: 500;
+  color: var(--texto-suave);
+}
+
+.tarjeta__titulo {
+  margin: 0;
+  font-size: var(--tam-subtitulo);
+  font-weight: var(--peso-fuerte);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.tarjeta__sub {
+  margin: 0;
+  font-size: var(--tam-chico);
+  color: var(--texto-suave);
+}
+
+.rotulo {
+  font-size: var(--tam-micro);
+  font-weight: var(--peso-fuerte);
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--texto-tenue);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

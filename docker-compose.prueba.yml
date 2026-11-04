@@ -1,0 +1,17 @@
+# OpenProject descartable para las pruebas de integración y E2E (sin volúmenes: `down` lo borra todo).
+# Levantar: docker compose -f docker-compose.prueba.yml up -d && npx tsx scripts/preparar-op-prueba.ts
+# Apagar:   docker compose -f docker-compose.prueba.yml down
+name: opendash-op-prueba
+services:
+  openproject:
+    image: openproject/openproject:16
+    container_name: opendash-op-prueba
+    ports:
+      - "8090:80"
+    environment:
+      OPENPROJECT_SECRET_KEY_BASE: prueba-no-secreta
+      OPENPROJECT_HOST__NAME: localhost:8090
+      OPENPROJECT_HTTPS: "false"
+      # En inglés a propósito: con «es» el catálogo se siembra como «Nuevo» / «En curso» / «Cerrado»
+      # y la app (que busca New / In progress / On hold / Closed, como el OpenProject real) no lo encuentra.
+      OPENPROJECT_DEFAULT__LANGUAGE: en
