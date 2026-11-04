@@ -6,6 +6,8 @@ Es un único proceso de Node que sirve la API y la web, con SQLite para lo propi
 
 La interfaz está en castellano rioplatense y las fechas van en la zona de Buenos Aires.
 
+![Inicio de OpenDash: saludo, contadores del día, anillos, próxima reunión, cronómetro, tareas que vencen, semana del equipo y quién falta](docs/capturas/inicio.png)
+
 ## Qué tiene
 
 - **Inicio**: lo que vence hoy y lo atrasado, la semana del equipo, quién falta, la próxima reunión y el cronómetro.
@@ -19,6 +21,19 @@ La interfaz está en castellano rioplatense y las fechas van en la zona de Bueno
 - **Para ordenar**: lo que necesita atención en un solo lugar: fechas que se pisan, vencidas, sin fechas, sin asignar y personas con más trabajo del que entra.
 - **Avisar un problema**: cualquiera manda un aviso con captura y quien administra lo ve en «Problemas avisados».
 - Aviso antes de cada reunión, tema claro u oscuro, búsqueda con `Ctrl K` y app instalable.
+
+## Capturas
+
+Con datos de una demo inventada.
+
+| | |
+|---|---|
+| ![Tablero de tareas con las columnas Nuevo, En curso, En pausa y Cerrado](docs/capturas/tareas.png) | ![Línea de tiempo por proyecto, con barras, horas, dependencias y la línea de hoy](docs/capturas/linea.png) |
+| **Tareas**: tablero con filtros por proyecto, persona y prioridad. | **Línea de tiempo**: barras por proyecto, dependencias, feriados y horas trabajadas contra estimadas. |
+| ![Calendario del mes con las reuniones y el panel del día](docs/capturas/calendario.png) | ![Equipo: una tarjeta por persona con presencia y carga semanal](docs/capturas/equipo.png) |
+| **Calendario**: reuniones de Outlook, vencimientos y feriados; el panel del día con «Unirse». | **Equipo**: quién está conectado, en qué trabaja y su carga contra la capacidad semanal. |
+| ![Proyectos con avance, próximo hito y fecha de cierre](docs/capturas/proyectos.png) | ![Inicio en tema claro](docs/capturas/inicio-claro.png) |
+| **Proyectos**: avance, próximo hito y miembros de cada proyecto. | **Tema claro**: todas las pantallas tienen tema claro y oscuro. |
 
 ## Requisitos
 
